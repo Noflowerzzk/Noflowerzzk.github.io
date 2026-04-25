@@ -1,0 +1,115 @@
+title: Abies's Notebook
+baseURL: /
+enableGitInfo: true
+hasCJKLanguage: true
+caches:
+  images:
+    dir: :cacheDir/images
+mediaTypes:
+  text/markdown:
+    suffixes:
+    - md
+outputFormats:
+  markdown:
+    mediaType: text/markdown
+    baseName: index
+    isPlainText: true
+outputs:
+  home:
+  - html
+  - rss
+  - markdown
+  page:
+  - html
+  - markdown
+  section:
+  - html
+  - rss
+  - markdown
+module:
+  imports:
+  - path: github.com/imfing/hextra
+markup:
+  highlight:
+    noClasses: false
+  goldmark:
+    renderer:
+      unsafe: true
+    extensions:
+      passthrough:
+        enable: true
+        delimiters:
+          block:
+          - - \[
+            - \]
+          - - $$
+            - $$
+          inline:
+          - - $
+            - $
+          - - \(
+            - \)
+menu:
+  main:
+  - name: Home
+    pageRef: /docs/
+    weight: 1
+  - name: 碎碎念
+    pageRef: /docs/自学记录/1_index/
+    weight: 2
+  - name: Noflower的笔记
+    pageRef: /docs/NoflowersNotes/Noflower_index/
+    weight: 3
+  - name: 论文阅读
+    pageRef: /docs/论文阅读/4D生成/L4GM/L4GM/
+    weight: 4
+  - name: 妙妙屋
+    pageRef: /docs/snippet/links/
+    weight: 5
+  - name: Search
+    weight: 6
+    params:
+      type: search
+  - name: GitHub
+    url: https://github.com/Abiesjqq
+    weight: 7
+    params:
+      icon: github
+params:
+  math:
+    engine: mathjax
+  mermaid:
+    js: js/mermaid.min.js
+  navbar:
+    displayTitle: true
+    displayLogo: false
+  footer:
+    displayCopyright: true
+    displayPoweredBy: true
+  theme:
+    default: system
+    displayToggle: true
+  displayUpdatedDate: true
+  dateFormat: '2006-01-02'
+  editURL:
+    enable: true
+    base: https://github.com/Abiesjqq/Abies_Notebook/edit/main/hextra-site/content
+  search:
+    enable: true
+    type: flexsearch
+  page:
+    width: normal
+    tabs:
+      sync: true
+    contextMenu:
+      enable: true
+      links:
+      - name: Open in ChatGPT
+        icon: chatgpt
+        url: https://chatgpt.com/?hints=search&q=I%27m+looking+at+this+documentation%3A+{url}%0AHelp+me+understand+how+to+use+it.
+      - name: Open in Claude
+        icon: claude
+        url: https://claude.ai/new?q=I%27m+reading+this+documentation%3A+{url}%0APlease+help+me+understand+it.
+      - name: Open in DeepSeek
+        icon: deepseek
+        url: https://chat.deepseek.com/

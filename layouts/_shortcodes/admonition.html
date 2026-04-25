@@ -1,0 +1,22 @@
+{{- $params := .Params | default dict -}}
+{{- $namedType := "" -}}
+{{- $namedTitle := "" -}}
+{{- if reflect.IsMap $params -}}
+  {{- with index $params "type" -}}
+    {{- $namedType = printf "%v" . -}}
+  {{- end -}}
+  {{- with index $params "title" -}}
+    {{- $namedTitle = printf "%v" . -}}
+  {{- end -}}
+{{- end -}}
+{{- $type := $namedType | default (.Get "type") | default "note" | printf "%v" | lower -}}
+{{- $title := $namedTitle | default (.Get "title") | default "" -}}
+
+<div class="mkdocs-admonition mkdocs-admonition--{{ $type }}" data-adm-source="shortcode" data-adm-type="{{ $type }}">
+  {{- if $title }}
+    <div class="mkdocs-admonition__title">{{ $title | markdownify }}</div>
+  {{- end }}
+  <div class="mkdocs-admonition__content">
+    {{ .Inner }}
+  </div>
+</div>

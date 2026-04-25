@@ -1,0 +1,20 @@
+{{- $title := .AlertTitle -}}
+{{- $content := .Text -}}
+{{- $type := .AlertType -}}
+
+{{- if eq $title "" -}}
+  {{- $matches := findRESubmatch `(?s)^\s*<p><strong>(.*?)</strong></p>\s*(.*)$` $content 1 -}}
+  {{- if gt (len $matches) 0 -}}
+    {{- $title = index (index $matches 0) 1 -}}
+    {{- $content = index (index $matches 0) 2 -}}
+  {{- end -}}
+{{- end -}}
+
+<div class="mkdocs-admonition mkdocs-admonition--{{ $type }}">
+  {{- if ne $title "" }}
+    <div class="mkdocs-admonition__title">{{ $title | safeHTML }}</div>
+  {{- end }}
+  <div class="mkdocs-admonition__content">
+    {{ $content | safeHTML }}
+  </div>
+</div>

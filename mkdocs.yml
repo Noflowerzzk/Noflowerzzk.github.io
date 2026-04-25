@@ -1,0 +1,539 @@
+site_name: Abies's Notebook
+repo_url: https://github.com/Abiesjqq/Abies_Notebook
+repo_name: Abies_Notebook
+theme:
+  name: material
+  custom_dir: docs/scripts
+  font:
+    text: Roboto
+
+  icon:
+    logo: material/forest-outline
+    annotation: material/arrow-right-circle
+
+  language: zh
+
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default # 日间模式
+      primary: teal
+      accent: teal
+      toggle:
+        icon: material/weather-night
+        name: 切换至夜间模式
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate # 夜间模式
+      primary: black
+      accent: teal
+      toggle:
+        icon: material/weather-sunny
+        name: 切换至日间模式
+  features:
+    - announce.dismiss # 可关闭公告栏
+    - navigation.instant # 页面无刷新切换
+#    - navigation.instant.preview
+    - header.autohide # 自动隐藏头部
+    - navigation.instant.progress # 页面切换进度条
+    - navigation.prune # 只渲染可见导航项
+    - navigation.tracking # 滚动时URL锚点自动更新
+    - navigation.tabs # 一级导航显示为顶部Tab
+    - navigation.tabs.sticky # Tab栏吸顶
+    # - navigation.sections # 侧边栏分组
+    - navigation.top # 返回顶部按钮
+    - navigation.footer # 页脚显示在侧边栏
+    - search.suggest # 搜索建议
+    - search.highlight # 搜索高亮
+    - search.share # 搜索结果分享
+    - toc.follow # 目录跟随滚动
+    # - toc.integrate # 目录集成到侧边栏
+    # - navigation.expand # 默认展开所有目录
+    - navigation.indexes # 支持节索引页
+    - content.tabs.link # 支持标签页链接
+    - content.tooltips # 支持鼠标悬浮提示
+    - content.code.copy # 代码块一键复制
+    - content.code.select # 代码块一键全选
+    # - content.action.edit # 编辑按钮
+    # - content.action.view # 查看源码按钮
+    - content.code.annotate # 代码注释
+    - git-revision-date
+    - git-revision-date-localized
+
+hooks:
+  - docs/scripts/hooks/reading_time.py
+  - docs/scripts/hooks/multi_language.py
+
+nav:
+  - Home:
+      - Homepage: index.md
+      - Notebook介绍: 介绍/Notebook介绍.md
+      - 通知公告:
+          - 通知公告: notices/index.md
+  - 碎碎念:
+      - 扉页: 自学记录/1_index.md
+      - 编程语言:
+          - Python:
+              - Numpy & Pandas: 自学记录/Python/Numpy & Pandas/Numpy & Pandas.md
+              - Matplotlib: 自学记录/Python/Matplotlib/Matplotlib.md
+              - Scikit-learn:
+                  - 入门: 自学记录/Python/Scikit-learn/入门/入门.md
+                  - 数据预处理: 自学记录/Python/Scikit-learn/数据预处理/数据预处理.md
+                  - 监督学习与无监督学习: 自学记录/Python/Scikit-learn/监督学习与无监督学习/监督学习与无监督学习.md
+                  - 支持向量机(SVM): 自学记录/Python/Scikit-learn/支持向量机/支持向量机.md
+                  - 随机森林: 自学记录/Python/Scikit-learn/随机森林/随机森林.md
+                  - 主成分分析: 自学记录/Python/Scikit-learn/主成分分析/主成分分析.md
+                  - K-Means 聚类: 自学记录/Python/Scikit-learn/K-Means聚类/K-Means聚类.md
+              - Pytorch:
+                  - Tensors 入门: 自学记录/Python/PyTorch/Tensors入门/Tensors入门.md
+                  - 线性回归和逻辑回归: 自学记录/Python/PyTorch/线性回归和逻辑回归/线性回归和逻辑回归.md
+                  - MLP与CNN: 自学记录/Python/PyTorch/MLP与CNN/MLP与CNN.md
+                  - RNN与DQN: 自学记录/Python/PyTorch/RNN与DQN/RNN与DQN.md
+          - R:
+              - 基本数据处理: 自学记录/R/基本数据处理/基本数据处理.md
+              - ggplot 基础: 自学记录/R/ggplot基本绘图/ggplot.md
+          - JavaScript: 自学记录/JavaScript/js_learning.md
+      - 常用工具:
+          - Vim: 自学记录/vim/vim.md
+          - Git: 自学记录/Git/git.md
+          - MkDocs: 自学记录/MkDocs/mkdocs.md
+          - CSS: 自学记录/CSS/css_learning.md
+          - tmux: 自学记录/tmux/tmux.md
+          - Batch: 自学记录/bat/bat_learning.md
+      - 数理基础:
+          - 因果效应估计: 自学记录/数学/因果效应估计/因果效应估计.md
+      - AI 实践:
+          - 扩散模型训练 -- Generative Models 为例: 自学记录/AI/DiffusionTraining/DiffusionTraining.md
+  - 课程笔记:
+      - 扉页: CourseNotes/note_index.md
+      - 计算机体系结构:
+          - Lec1 绪论: CourseNotes/Computer Architecture/CA01.md
+          - 实验部分:
+              - lab0 zju git使用备注: CourseNotes/Computer Architecture/CA_labs/CA_lab0.md
+      - 数据库系统:
+          - Lec1 数据库基本概念: CourseNotes/Database System/DB01.md
+          - Lec2 关系模型: CourseNotes/Database System/DB02.md
+      - 量子信息基础: 
+          - Lec1 信息与信息熵: CourseNotes/Quantum Information/QI01.md
+          - Lec2 电磁波与狄拉克符号: CourseNotes/Quantum Information/QI02.md
+          - 实验部分:
+              - lab2 量子态的描述与量子密钥分发: CourseNotes/Quantum Information/QI_labs/QI_lab2.md
+      - 计算机组成:
+          - Ch1 介绍: CourseNotes/Computer Organization/lecture notes/COchap01.md
+          - Ch3 基本运算: CourseNotes/Computer Organization/lecture notes/COchap03.md
+          - Ch2 指令集: CourseNotes/Computer Organization/lecture notes/COchap02.md
+          - Ch4 处理器: CourseNotes/Computer Organization/lecture notes/COchap04.md
+          - Ch5 存储结构: CourseNotes/Computer Organization/lecture notes/COchap05.md
+          - Ch6 附录: CourseNotes/Computer Organization/lecture notes/COchap06.md
+          - 期末复习: CourseNotes/Computer Organization/lecture notes/CO0.md
+          - 实验记录: 
+              - vivado: CourseNotes/Computer Organization/experiment notes/vivado intro.md
+              - CPU: CourseNotes/Computer Organization/experiment notes/CPU.md
+      - 高级数据结构与算法分析:
+          - 讲义: CourseNotes/Advance Data Structure/ADS00.md
+          - AVL树, Splay树: CourseNotes/Advance Data Structure/ADS01.md
+          - 红黑树, B+树: CourseNotes/Advance Data Structure/ADS02.md
+          - 倒排索引: CourseNotes/Advance Data Structure/ADS03.md
+          - 左偏堆，斜堆: CourseNotes/Advance Data Structure/ADS04.md
+          - 二项队列: CourseNotes/Advance Data Structure/ADS05.md
+          - 回溯: CourseNotes/Advance Data Structure/ADS06.md
+          - 分治: CourseNotes/Advance Data Structure/ADS07.md
+          - 动态规划: CourseNotes/Advance Data Structure/ADS08.md
+          - 贪心算法: CourseNotes/Advance Data Structure/ADS09.md
+          - P/NP问题: CourseNotes/Advance Data Structure/ADS10.md
+          - 近似算法: CourseNotes/Advance Data Structure/ADS11.md
+          - 局部搜索: CourseNotes/Advance Data Structure/ADS12.md
+          - 随机算法: CourseNotes/Advance Data Structure/ADS13.md
+          - 并行算法: CourseNotes/Advance Data Structure/ADS14.md
+          - 外部排序: CourseNotes/Advance Data Structure/ADS15.md
+          - 期中复习: CourseNotes/Advance Data Structure/ADS_mid.md
+      - 普通物理学II:
+          - 数学基础: CourseNotes/General Physics II/Phy00.md
+          - 库伦定律，高斯定律: CourseNotes/General Physics II/Phy01.md
+          - 电势，导体: CourseNotes/General Physics II/Phy02.md
+          - 电容，电介质: CourseNotes/General Physics II/Phy03.md 
+          - 欧姆定律，电路: CourseNotes/General Physics II/Phy04.md
+          - 静磁场，磁力: CourseNotes/General Physics II/Phy05.md
+          - 电磁感应，电感: CourseNotes/General Physics II/Phy06.md
+      - 概率论与数理统计:
+          - Ch1 基本概念: CourseNotes/Probability/PRO01.md
+          - Ch2 一维随机变量: CourseNotes/Probability/PRO02.md
+          - Ch3 二维随机变量: CourseNotes/Probability/PRO03.md
+          - Ch4 随机变量的数字特征: CourseNotes/Probability/PRO04.md
+          - Ch5 大数定律与中心极限定理: CourseNotes/Probability/PRO05.md
+          - Ch6 数理统计的基本概念: CourseNotes/Probability/PRO06.md
+      - 工程图学:
+          - 投影画法: CourseNotes/Engineering Graphics/EG01.md
+          - 标准件: CourseNotes/Engineering Graphics/EG02.md
+          - 零件图: CourseNotes/Engineering Graphics/EG03.md
+          - 读图: CourseNotes/Engineering Graphics/EG04.md
+      - 数据结构基础:
+          - 数据结构复习: CourseNotes/Fundamental Data Structure/0. 期末复习.md
+          - 时间复杂度: CourseNotes/Fundamental Data Structure/1. 时间复杂度.md
+          - 最大连续和子数组: CourseNotes/Fundamental Data Structure/2. 最大连续和子数组.md
+          - 堆栈和队列: CourseNotes/Fundamental Data Structure/3. 堆栈和队列.md
+          - 树的概念: CourseNotes/Fundamental Data Structure/4. 树的概念.md
+          - 树的遍历和特殊的树: CourseNotes/Fundamental Data Structure/5. 树的遍历和特殊的树.md
+          - 一些题目和笔记: CourseNotes/Fundamental Data Structure/5.5 一些题目和笔记.md
+          - 堆的实现: CourseNotes/Fundamental Data Structure/6. 堆的实现.md
+          - 并查集和图: CourseNotes/Fundamental Data Structure/7. 并查集和图.md
+          - 拓扑排序和Dijkstra: CourseNotes/Fundamental Data Structure/8. 拓扑排序和Dijkstra.md
+          - Floyd和AOE网: CourseNotes/Fundamental Data Structure/9. Floyd和AOE网.md
+          - 网络流问题和最小生成树: CourseNotes/Fundamental Data Structure/10. 网络流问题和最小生成树.md
+          - 双连通图和欧拉回路: CourseNotes/Fundamental Data Structure/11. 双连通图和欧拉回路.md
+          - 希尔，堆，归并，快速排序: CourseNotes/Fundamental Data Structure/12. 希尔，堆，归并，快速排序.md
+          - 循环不变式和区块链: CourseNotes/Fundamental Data Structure/13. 循环不变式和区块链.md
+          - 比特币和哈希: CourseNotes/Fundamental Data Structure/14. 比特币和哈希.md
+          - 哈希动态查找: CourseNotes/Fundamental Data Structure/15. 哈希动态查找.md
+          - 一些代码: CourseNotes/Fundamental Data Structure/15.5 一些代码.md
+      - C语言程序设计: 
+          - C语言笔记: CourseNotes/C Programming/CNote.md
+      - 机器人感知与运动控制(短):
+          - 绪论: CourseNotes/robot control/theoretical/lec 01 intro.md
+          - 传感器模组: CourseNotes/robot control/theoretical/lec 02 sensors.md
+          - 数字图像处理: CourseNotes/robot control/theoretical/lec 03 CV.md
+          - 刚体动力学概述: CourseNotes/robot control/theoretical/lec 04 mechanics.md
+          - 机器人导航规划: CourseNotes/robot control/theoretical/lec 05 motion.md
+          - 实践课:
+              - 激光扫描仪和点云处理: CourseNotes/robot control/practical/scanner.md
+              - OpenCV视频处理: CourseNotes/robot control/practical/video.md
+              - 机器人控制: CourseNotes/robot control/practical/rigid-body kinematics.md
+              - Taichi简介: CourseNotes/robot control/practical/taichi intro.md
+              - rigid_body代码说明: CourseNotes/robot control/practical/robot intro.md
+      - 马克思主义基本原理:
+              - 期末碎碎念: CourseNotes/Marxism/MBP_final.md
+  - Noflower的笔记:
+      - 扉页: NoflowersNotes/Noflower_index.md
+      - Computer Vision:
+          - Intro & K-NN: NoflowersNotes/ComputerVision/Intro&K-NN.md
+          - Loss Functions: NoflowersNotes/ComputerVision/Loss Functions.md
+          - Gradient Descent: NoflowersNotes/ComputerVision/Gradient_Descent/Gradient_Descent.md
+          - CNN & Training Basics: NoflowersNotes/ComputerVision/CNN/CNN.md
+          - RNN: NoflowersNotes/ComputerVision/RNN/RNN.md
+          - Detection, Segmentation, Visualization, and Understanding: NoflowersNotes/ComputerVision/DetectionandSegementation/DetectionandSegementation.md
+          - Attention and Transformers: NoflowersNotes/ComputerVision/AttentionandTransformers/AttentionandTransformers.md
+          - Video Understanding: NoflowersNotes/ComputerVision/VideoUnderstanding/VideoUnderstanding.md
+      - 数模笔记:
+          - 数模的概率统计笔记: NoflowersNotes/概率统计/数模的概率统计笔记.md
+          - 微分方程: NoflowersNotes/数模/微分方程建模/微分方程建模.md
+      - 信号与系统:
+          - 信号基础知识: NoflowersNotes/信号与系统/Lec_1/Lec_1.md
+          - 系统及其分类: NoflowersNotes/信号与系统/Lec_2/Lec_2.md
+          - 面向线性时不变系统的信号分解基础: NoflowersNotes/信号与系统/Lec_3/Lec_3.md
+          - LTI 系统的时域分析: NoflowersNotes/信号与系统/Lec_4/Lec_4.md
+          - LTI 系统的频域分析 - 数学原理: NoflowersNotes/信号与系统/Lec_5/Lec_5.md
+          - LTI 系统的频域分析 - 相关应用: NoflowersNotes/信号与系统/Lec_6/Lec_6.md
+          - 拉普拉斯变换: NoflowersNotes/信号与系统/Lec_7/Lec_7.md
+          - 系统的 s 域分析: NoflowersNotes/信号与系统/Lec_8/Lec_8.md
+          - z 变换和离散时间系统的 z 域分析: NoflowersNotes/信号与系统/Lec_9/Lec_9.md
+          - 系统的 z 域分析: NoflowersNotes/信号与系统/Lec_10/Lec_10.md
+      - 人工智能基础:
+          - 绪论: NoflowersNotes/人工智能基础/绪论/绪论.md
+          - 启发式搜索算法: NoflowersNotes/人工智能基础/启发式搜索算法/启发式搜索算法.md
+          - 零和博弈搜索算法: NoflowersNotes/人工智能基础/零和博弈搜索算法/零和博弈搜索算法.md
+          - 强化学习: NoflowersNotes/人工智能基础/强化学习/强化学习.md
+      - 算法设计分析:
+          - 分治: NoflowersNotes/算法设计分析/分治/分治.md
+          - 图: NoflowersNotes/算法设计分析/图/图.md
+          - 贪心: NoflowersNotes/算法设计分析/贪心/贪心.md
+          - 动态规划: NoflowersNotes/算法设计分析/动态规划/动态规划.md
+          - 线性规划应用: NoflowersNotes/算法设计分析/线性规划应用/线性规划应用.md
+          - NP 问题和规约: NoflowersNotes/算法设计分析/NP完全/NP完全.md
+      - 凸优化:
+          - 支持向量机 (SVM): NoflowersNotes/凸优化/SVM/SVM.md
+          - 一阶和二阶导数 (补档): NoflowersNotes/凸优化/数学基础/数学基础.md
+          - 凸集: NoflowersNotes/凸优化/凸集/凸集.md
+          - 线性规划: NoflowersNotes/凸优化/线性规划/线性规划.md
+          - 二次规划: NoflowersNotes/凸优化/二次规划/二次规划.md
+          - 梯度下降: NoflowersNotes/凸优化/梯度下降/梯度下降.md
+          - Lagrange 方法: NoflowersNotes/凸优化/Lagrange 方法/Lagrange 方法.md
+          - Karush-Kuhn-Tucker 条件: NoflowersNotes/凸优化/Karush-Kuhn-Tucker/Karush-Kuhn-Tucker.md
+          - 限制条件下的梯度下降: NoflowersNotes/凸优化/投影梯度下降/投影梯度下降.md
+          - 线性规划的对偶: NoflowersNotes/凸优化/对偶线性规划/对偶线性规划.md
+      - 智能语音技术:
+          - 2D Convolution: NoflowersNotes/智能语音技术/语音信号处理/语音信号处理.md
+      - 计算机体系结构:
+          - 导论: NoflowersNotes/ComputerArchitecture/导论/导论.md
+          - DigitalLogic: NoflowersNotes/ComputerArchitecture/DigitalLogic/DigitalLogic.md
+          - 微体系结构: NoflowersNotes/ComputerArchitecture/MicroArchitecture/MicroArchitecture.md
+          - 指令集: NoflowersNotes/ComputerArchitecture/ISA/ISA.md
+      - 机器学习:
+          - 机器学习: NoflowersNotes/机器学习/机器学习介绍/机器学习介绍.md
+      - 深度学习:
+          - Overview: NoflowersNotes/DeepLearning/Overview/Overview.md
+      - 随机过程:
+          - 独立随机变量和集中不等式: NoflowersNotes/StochasticProcess/概率论基础回顾/概率论基础回顾.md
+          - 马尔可夫链: NoflowersNotes/StochasticProcess/MarkovChain/MarkovChain.md
+          - 无限状态马尔可夫链: NoflowersNotes/StochasticProcess/InfinitMC/InfinitMC.md
+      - 计算机网络:
+          - 网络分层和参考模型: NoflowersNotes/计算机网络/网络分层/网络分层.md
+  - Abies的笔记:
+      - 扉页: AbiesNotes/Abies_index.md
+      - CS231n:
+          - Lec 02 Image Classification: AbiesNotes/CS231n/notes/cs231n_02.md
+          - Lec 03 Loss Functions and Optimization: AbiesNotes/CS231n/notes/cs231n_03.md
+          - Lec 04 Introduction to Neural Networks: AbiesNotes/CS231n/notes/cs231n_04.md
+          - Lec 05 Convolutional Neural Networks: AbiesNotes/CS231n/notes/cs231n_05.md
+          - Lec 06 Training Neural Networks I: AbiesNotes/CS231n/notes/cs231n_06.md
+          - Lec 07 Training Neural Networks II: AbiesNotes/CS231n/notes/cs231n_07.md
+          - Assignment 1:
+              - KNN: AbiesNotes/CS231n/assignments/a1_knn.md
+      - Vision Course:
+          - Camera: AbiesNotes/Vision Course/CV02_camera.md
+          - Color: AbiesNotes/Vision Course/CV03_color.md
+          - HDR: AbiesNotes/Vision Course/CV04_HDR.md
+          - Lighting: AbiesNotes/Vision Course/CV05_lignting.md
+          - Filters: AbiesNotes/Vision Course/CV06_filters.md
+          - Graph Cut: AbiesNotes/Vision Course/CV07_cut.md
+          - Feature Detector: AbiesNotes/Vision Course/CV08_detector.md
+          - Feature Descriptor: AbiesNotes/Vision Course/CV09_descriptor.md
+          - Homography: AbiesNotes/Vision Course/CV10_homography.md
+          - Camera Model: AbiesNotes/Vision Course/CV11_model.md
+      - GAMES101:
+          - Lec 01 Overview of Computer Graphics: AbiesNotes/GAMES101/Lecture 01 Overview of Computer Graphics.md
+          - Lec 02 Review of Linear Algebra: AbiesNotes/GAMES101/Lecture 02 Review of Linear Algebra.md
+          - Lec 03 Transformation: AbiesNotes/GAMES101/Lecture 03 Transformation.md
+          - Lec 04 Transformations Cont.: AbiesNotes/GAMES101/Lecture 04 Transformations Cont.md
+          - Lec 05 Rasterization 1 (Triangles): AbiesNotes/GAMES101/Lecture 05 Rasterization 1 (Triangles).md
+          - Lec 06 Rasterization 2 (Antiliasing): AbiesNotes/GAMES101/Lecture 06 Rasterization 2 (Antiliasing).md
+          - Lec 07 Shading 1 (Illumination, Shading and Graphics Pipelines): AbiesNotes/GAMES101/Lecture 07 Shading 1.md
+          - Lec 08 Shading 2 (Shading, Pipeline and Texture Mapping): AbiesNotes/GAMES101/Lecture 08 Shading 2.md
+          - Lec 09 Shading 3 (Texture Mapping cont.): AbiesNotes/GAMES101/Lecture 09 Shading 3.md
+          - Lec 10 Geomertry 1 (Introduction): AbiesNotes/GAMES101/Lecture 10 Geometry 1.md
+          - Lec 11 Geomertry 2 (Curves and Surfaces): AbiesNotes/GAMES101/Lecture 11 Geometry 2.md
+          - Lec 12 Geometry 3: AbiesNotes/GAMES101/Lecture 12 Geometry 3.md
+          - Lec 13 Ray Tracing 1 (Whitted-Style Ray Tracing): AbiesNotes/GAMES101/Lecture 13 Ray Tracing 1.md
+          - Lec 14 Ray Tracing 2(Acceleration): AbiesNotes/GAMES101/Lecture 14 Ray Tracing 2.md
+          - Lec 15 Ray Tracing 3(Light Transport & Global Illumination): AbiesNotes/GAMES101/Lecture 15 Ray Tracing 3.md
+          - Lec 16 Ray Tracing 4(Monte Carlo Path Tracing): AbiesNotes/GAMES101/Lecture 16 Ray Tracing 4.md
+          - Lec 17 Materials and Appearances: AbiesNotes/GAMES101/Lecture 17 Materials and Appearances.md
+          - Lec 18 Advanced Topics in Rendering: AbiesNotes/GAMES101/Lecture 18 Advanced Topics in Rendering.md
+          - Lec 19 Cameras, Lenses and Light Fields: AbiesNotes/GAMES101/Lecture 19 Cameras, Lenses and Light Fields.md
+      - DeepLearning碎碎念:
+          - 深度学习计算:
+              - 模型构造: AbiesNotes/Dive_into_Deep_Learning/4_1.ipynb
+              - 模型参数: AbiesNotes/Dive_into_Deep_Learning/4_2.ipynb
+              - 自定义层: AbiesNotes/Dive_into_Deep_Learning/4_4.ipynb
+              - 读写: AbiesNotes/Dive_into_Deep_Learning/4_5.ipynb
+              - GPU计算: AbiesNotes/Dive_into_Deep_Learning/4_6.ipynb
+              - Ch5.1 二维卷积层: AbiesNotes/Dive_into_Deep_Learning/5_1.ipynb
+              - Ch5.2: AbiesNotes/Dive_into_Deep_Learning/5_2.ipynb
+              - Ch5.3: AbiesNotes/Dive_into_Deep_Learning/5_3.ipynb
+              - Ch5.4: AbiesNotes/Dive_into_Deep_Learning/5_4.ipynb
+              - Ch5.5: AbiesNotes/Dive_into_Deep_Learning/5_5.ipynb
+              - Ch5.6: AbiesNotes/Dive_into_Deep_Learning/5_6.ipynb
+              - Ch5.7: AbiesNotes/Dive_into_Deep_Learning/5_7.ipynb
+              - Ch5.8: AbiesNotes/Dive_into_Deep_Learning/5_8.ipynb
+          - Kaggle实例:
+              - 房价预测: AbiesNotes/Dive_into_Deep_Learning/HousePrice/kaggle_house_price.ipynb
+          - Python工具:
+              - Pandas: AbiesNotes/Dive_into_Deep_Learning/Pandas_tutorial.ipynb
+      - Tinyrenderer:
+          - Getting started: AbiesNotes/Tinyrenderer/getting started.md
+          - Line: AbiesNotes/Tinyrenderer/line.md
+          - Triangle: AbiesNotes/Tinyrenderer/triangle.md
+          - Texture: AbiesNotes/Tinyrenderer/texture.md
+          - Projection: AbiesNotes/Tinyrenderer/projection.md
+          - Gourand Shading: AbiesNotes/Tinyrenderer/Gourand.md
+          - Camera: AbiesNotes/Tinyrenderer/camera.md
+          - Shader: AbiesNotes/Tinyrenderer/shader.md
+  - 论文阅读:
+      - 4D Generation:
+          - L4GM: 论文阅读/4D生成/L4GM/L4GM.md
+          - SV4D: 论文阅读/4D生成/SV4D/SV4D.md
+      - Diffusion:
+          - Denoising Diffusion Probabilistic Models: 论文阅读/Diffusion/Denoising Diffusion Probabilistic Models/Denoising Diffusion Probabilistic Models.md
+          - Denoising Diffusion Implicit Models: 论文阅读/Diffusion/Denoising Diffusion Implicit Models/Denoising Diffusion Implicit Models.md
+          - Score-Based Generative Modeling through Stochastic Differential Equations: 论文阅读/Diffusion/Score-Based Generative Modeling through Stochastic Differential Equations/Score-Based Generative Modeling through Stochastic Differential Equations.md
+          - Upscale-A-Video, Temporal-Consistent Diffusion Model for Real-World Video Super-Resolution: 论文阅读/Diffusion/Upscale-A-Video, Temporal-Consistent Diffusion Model for Real-World Video Super-Resolution/Upscale-A-Video, Temporal-Consistent Diffusion Model for Real-World Video Super-Resolution.md
+          - Unleashing the Power of One-Step Diffusion based Image Super-Resolution via a Large-Scale Diffusion Discriminator: 论文阅读/Diffusion/Unleashing the Power of One-Step Diffusion based Image Super-Resolution/Unleashing the Power of One-Step Diffusion based Image Super-Resolution.md
+          - DOVE, Efficient One-Step Diffusion Model for Real-World Video Super-Resolution: 论文阅读/Diffusion/DOVE, Efficient One-Step Diffusion Model for Real-World Video Super-Resolution/DOVE, Efficient One-Step Diffusion Model for Real-World Video Super-Resolution.md
+      - World Model:
+          - 简介: 论文阅读/WorldModel/简介/简介.md
+          - Real Time World Model: 论文阅读/WorldModel/RealTimeWorldModel/RealTimeWorldModel.md
+  - 妙妙屋:
+      - 跳转与介绍: snippet/links.md
+extra:
+  generator: false #是否删除页脚显示“使用 MkDocs 材料制造”
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/Abiesjqq
+      name: Abies on Github
+    - icon: fontawesome/brands/github
+      link: https://github.com/Noflowerzzk
+      name: Noflower on Github
+
+  #   - icon: fontawesome/brands/weixin
+  #     link: https://s1.imagehub.cc/images/2024/02/02/bb9ee71b03ee7a3b87caad5cc4bcebff.jpeg
+  #     name: Wechat
+  #   - icon: fontawesome/brands/telegram
+  #     link: https://t.me/wecowin
+  #     name: telegram
+  #   - icon: fontawesome/brands/x-twitter #联系方式图标 : https://fontawesome.com/ 去这里找图标
+  #     link: https://twitter.com/wcowin_
+  #   - icon: fontawesome/brands/github
+  #     link: https://github.com/Wcowin
+
+  #   - icon: fontawesome/regular/envelope #联系方式图标
+  #     link: mailto:<wangkewen821@gmail.com> #邮件联系方式
+  #   - icon: fontawesome/brands/bilibili
+  #     link: https://space.bilibili.com/1407028951/lists/4566631?type=series
+  # analytics:
+  #   provider: google #谷歌分析
+  #   property:  ##如果你 clone 了my模板，请将这个修改为你的
+
+  #   # 网页底部反馈
+  #   feedback:
+  #     title: 此页面有帮助吗？
+  #     ratings:
+  #       - icon: material/thumb-up-outline #图标可自定义
+  #         name: This page was helpful
+  #         data: 1
+  #         note: >-
+  #           谢谢你的反馈！
+  #       - icon: material/thumb-down-outline
+  #         name: This page could be improved
+  #         data: 0
+  #         note: >-
+  #           Thanks for your feedback! Help us improve this page by
+  #           using our <a href="https://marketingplatform.google.com/about/analytics/" target="_blank" rel="noopener">feedback form</a>.
+  # cookies设置（可选）
+  # consent:
+  #   title: Cookie consent
+  #   description: >-
+  #     我们也使用cookies来识别您的重复访问和偏好来衡量我们文档的有效性以及用户是否找到他们要找的东西。
+  #     如果你同意,你可以帮助我们让我们的网站更好
+
+markdown_extensions:
+  - abbr
+  - attr_list
+  - admonition
+  - def_list
+  - footnotes
+  # - callouts
+  - md_in_html
+  - markdown.extensions.abbr # 支持Markdown文件上方自定义标题标签等
+  - pymdownx.magiclink
+  - pymdownx.blocks.caption
+  - pymdownx.caret
+  - pymdownx.betterem
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.snippets
+  - pymdownx.smartsymbols
+  - pymdownx.tilde
+  - pymdownx.highlight:
+      linenums: true
+      auto_title: true
+      anchor_linenums: true
+  #      linenums_style: pymdownx.inline
+  - pymdownx.superfences
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.emoji:
+      emoji_generator:
+        !!python/name:pymdownx.emoji.to_svg # 用 SVG 图标显示 emoji
+  - pymdownx.superfences:
+      # make exceptions to highlighting of code:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:mermaid2.fence_mermaid_custom
+
+
+  - pymdownx.tabbed:
+      alternate_style: true
+
+extra_javascript:
+  # - tabs.js
+  # - javascripts/extra.js
+  # - javascripts/extra2.js
+  # - javascripts/bannerSlider.js
+  # - javascripts/custom_nav.js
+  - https://cdn.jsdelivr.net/gh/Wcowin/Wcowin.github.io@main/docs/javascripts/extra.js # extra的cdn
+  - javascripts/animate-details.js
+  - javascripts/mathjax.js
+  - javascripts/cursor.js
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+  - javascripts/busuanzi.pure.mini.js
+  #  - https://cdn.jsdelivr.net/npm/busuanzi@2.3.0/dist/busuanzi.pure.mini.js
+  # - https://cdn.jsdelivr.net/gh/Wcowin/Wcowin.github.io@main/docs/javascripts/mathjax.js
+  # - https://polyfill.io/v3/polyfill.min.js?features=es6
+
+  # - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS_HTML
+  # - https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js
+  # - https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js
+  # - javascripts/backbound1.js
+  # - https://cdn.jsdelivr.net/npm/mermaid@10.0.2/dist/add-html-label-6e56ed67.min.js
+  # - https://res.zvo.cn/translate/translate.js  # Translate
+  - https://cdn.jsdelivr.net/gh/Wcowin/Wcowin.github.io@main/docs/javascripts/view.js
+  # - javascripts/font-loader.js
+  # - javascripts/toc-sync.js
+
+extra_css:
+  - stylesheets/extra.css
+  - stylesheets/extra2.css
+  - stylesheets/cursor.css # 鼠标指针
+  - stylesheets/info.css # 阅读信息等 info 对象
+  - stylesheets/create_and_update.css # 创建时间和更新时间样式
+  # - https://cdn.jsdelivr.net/gh/Wcowin/Wcowin.github.io@main/docs/stylesheets/extra.css
+  # - stylesheets/link.css  #友链
+  # - stylesheets/poem.css
+  # - https://cdn.jsdelivr.net/gh/Wcowin/Wcowin.github.io@main/docs/stylesheets/poem.css
+  # - https://cdn.jsdelivr.net/gh/Wcowin/Wcowin.github.io@main/docs/stylesheets/link.css  #友链
+  # - stylesheets/card2.css
+  # - https://cdn.jsdelivr.net/gh/Wcowin/Wcowin.github.io@main/docs/stylesheets/card2.css
+  - stylesheets/customize.css #按钮圆角化
+  # - stylesheets/homepage.css  # 首页居中
+  # - https://cdn.jsdelivr.net/gh/Wcowin/Wcowin.github.io@main/docs/stylesheets/customize.css  #按钮圆角化
+  # - stylesheets/flink.css
+  # - stylesheets/bannerSlider.css
+  # - https://cdn.jsdelivr.net/gh/Wcowin/Wcowin.github.io@main/docs/stylesheets/extra.css # extra.css的CDN
+  # - stylesheets/extra1.css
+  # - stylesheets/video.css
+  # - https://unpkg.com/@waline/client@v2/dist/waline.css
+  # - https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.css #评论
+  # - ckplayer/css/ckplayer.css
+  # - https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css
+  # - https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.1.0/style.css  #字体
+  # - https://static.zeoseven.com/zsft/292/main/result.css #字体
+  # - stylesheets/ziti.css  #字体
+  #  - https://cdn.jsdelivr.net/gh/Wcowin/Wcowin.github.io@main/docs/stylesheets/ziti.css
+  # - https://chinese-fonts-cdn.deno.dev/packages/lxgwwenkai/dist/LXGWWenKai-Bold/result.css
+  - stylesheets/font.css # 把远程 css 换成本地版本
+  # - https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css # font-awesome表情支持
+  # - stylesheets/timeline.css
+  # - stylesheets/LiquidGlass.css
+  - https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined
+
+plugins:
+  - search
+  - mermaid2
+  - git-committers:
+#      enabled: true
+      #    enabled: !ENV [ git-committers, false ]
+      repository: Abiesjqq/Abies_Notebook
+      branch: main
+      token: !ENV [MKDOCS_GIT_COMMITTERS_APIKEY, GIT_COMMITTERS_TOKEN, GITHUB_TOKEN]
+      enabled: !ENV [CI, false]   # 本地 false，CI 中 true
+  - git-revision-date-localized:
+      enabled: true
+      #    enabled: !ENV [ git-revision-date-localized, false ]
+      type: iso_date
+      enable_creation_date: true
+  - blog:
+      blog_dir: notices
+      blog_toc: true
+      post_date_format: full
+      archive_toc: true
+      categories_toc: true
+      #      pagination_format: "$link_first $link_previous ~2~ $link_next $link_last"
+      #      pagination: true
+      #      pagination_keep_content: true
+      #      draft_if_future_date: true
+      pagination_per_page: 5
+  - mkdocs-jupyter: # 对 jupyter notebook 的支持
+      execute: false        # 不在构建时执行 notebook（强烈建议）
+      include_source: true  # 允许下载 .ipynb

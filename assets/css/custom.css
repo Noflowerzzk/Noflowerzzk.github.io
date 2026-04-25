@@ -1,0 +1,298 @@
+.mkdocs-admonition {
+  --mkdocs-admonition-color: #9ca3af;
+  --mkdocs-admonition-title-bg: rgba(156, 163, 175, 0.14);
+  --mkdocs-admonition-title-underline: rgba(156, 163, 175, 0.82);
+  margin: 1.25rem 0;
+  padding: 0.125rem 0 0.125rem 1rem;
+  border-left: 4px solid var(--mkdocs-admonition-color);
+}
+
+.mkdocs-admonition__title {
+  display: inline-block;
+  margin: 0 0 0.58rem;
+  padding: 0.18rem 0.65rem 0.12rem 0.3rem;
+  background: var(--mkdocs-admonition-title-bg);
+  border-bottom: 3px solid var(--mkdocs-admonition-title-underline);
+  border-radius: 0.3rem 0.3rem 0 0;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.mkdocs-admonition__title > * {
+  margin: 0;
+}
+
+.mkdocs-admonition__content {
+  font-size: 0.94rem;
+  line-height: 1.72;
+}
+
+.mkdocs-admonition__content mjx-container,
+.mkdocs-admonition__content .MathJax,
+.mkdocs-admonition__content .katex {
+  font-size: 0.94em !important;
+}
+
+.page-reading-meta {
+  margin-top: 0.35rem;
+  color: rgb(100 116 139);
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+
+.dark .page-reading-meta {
+  color: rgb(148 163 184);
+}
+
+.mkdocs-admonition__content > :first-child,
+.mkdocs-admonition__content > p:first-child,
+.mkdocs-admonition__content > ul:first-child,
+.mkdocs-admonition__content > ol:first-child,
+.mkdocs-admonition__content > blockquote:first-child,
+.mkdocs-admonition__content > pre:first-child,
+.mkdocs-admonition__content > .mkdocs-admonition:first-child {
+  margin-top: 0;
+}
+
+.mkdocs-admonition__content > :last-child,
+.mkdocs-admonition__content > p:last-child,
+.mkdocs-admonition__content > ul:last-child,
+.mkdocs-admonition__content > ol:last-child,
+.mkdocs-admonition__content > blockquote:last-child,
+.mkdocs-admonition__content > pre:last-child,
+.mkdocs-admonition__content > .mkdocs-admonition:last-child {
+  margin-bottom: 0;
+}
+
+.mkdocs-admonition .mkdocs-admonition {
+  margin-left: 0.75rem;
+}
+
+.mkdocs-admonition--remarks {
+  --mkdocs-admonition-color: rgb(108, 187, 162);
+  --mkdocs-admonition-title-bg: rgba(88, 247, 225, 0.18);
+  --mkdocs-admonition-title-underline: rgb(108, 187, 162);
+}
+
+.mkdocs-admonition--warning-box,
+.mkdocs-admonition--warning,
+.mkdocs-admonition--caution {
+  --mkdocs-admonition-color: rgb(204, 108, 130);
+  --mkdocs-admonition-title-bg: rgba(254, 93, 93, 0.18);
+  --mkdocs-admonition-title-underline: rgb(204, 108, 130);
+}
+
+.mkdocs-admonition--examples,
+.mkdocs-admonition--example {
+  --mkdocs-admonition-color: rgb(108, 150, 187);
+  --mkdocs-admonition-title-bg: rgba(88, 157, 247, 0.18);
+  --mkdocs-admonition-title-underline: rgb(108, 150, 187);
+}
+
+.mkdocs-admonition--normal-comment,
+.mkdocs-admonition--comment {
+  --mkdocs-admonition-color: rgb(189, 136, 110);
+  --mkdocs-admonition-title-bg: rgba(252, 219, 89, 0.18);
+  --mkdocs-admonition-title-underline: rgb(189, 136, 110);
+}
+
+.mkdocs-admonition--reading-info,
+.mkdocs-admonition--info {
+  --mkdocs-admonition-color: rgb(76, 175, 80);
+  --mkdocs-admonition-title-bg: rgba(76, 175, 80, 0.16);
+  --mkdocs-admonition-title-underline: rgb(76, 175, 80);
+}
+
+.mkdocs-admonition--pure {
+  --mkdocs-admonition-color: rgb(147, 185, 125);
+  --mkdocs-admonition-title-bg: rgba(235, 250, 240, 0.9);
+  --mkdocs-admonition-title-underline: rgb(147, 185, 125);
+}
+
+.mkdocs-admonition--note {
+  --mkdocs-admonition-color: rgb(108, 150, 187);
+  --mkdocs-admonition-title-bg: rgba(88, 157, 247, 0.18);
+  --mkdocs-admonition-title-underline: rgb(108, 150, 187);
+}
+
+.mkdocs-admonition--tip,
+.mkdocs-admonition--important {
+  --mkdocs-admonition-color: rgb(108, 187, 162);
+  --mkdocs-admonition-title-bg: rgba(88, 247, 225, 0.18);
+  --mkdocs-admonition-title-underline: rgb(108, 187, 162);
+}
+
+.mkdocs-admonition--remarks {
+  border-left-color: rgb(108, 187, 162) !important;
+}
+
+.mkdocs-admonition--remarks > .mkdocs-admonition__title {
+  background: rgba(88, 247, 225, 0.18) !important;
+  border-bottom-color: rgb(108, 187, 162) !important;
+}
+
+.mkdocs-admonition--warning-box,
+.mkdocs-admonition--warning,
+.mkdocs-admonition--caution {
+  border-left-color: rgb(204, 108, 130) !important;
+}
+
+.mkdocs-admonition--warning-box > .mkdocs-admonition__title,
+.mkdocs-admonition--warning > .mkdocs-admonition__title,
+.mkdocs-admonition--caution > .mkdocs-admonition__title {
+  background: rgba(254, 93, 93, 0.18) !important;
+  border-bottom-color: rgb(204, 108, 130) !important;
+}
+
+.mkdocs-admonition--examples,
+.mkdocs-admonition--example {
+  border-left-color: rgb(108, 150, 187) !important;
+}
+
+.mkdocs-admonition--examples > .mkdocs-admonition__title,
+.mkdocs-admonition--example > .mkdocs-admonition__title {
+  background: rgba(88, 157, 247, 0.18) !important;
+  border-bottom-color: rgb(108, 150, 187) !important;
+}
+
+.mkdocs-admonition--normal-comment,
+.mkdocs-admonition--comment {
+  border-left-color: rgb(189, 136, 110) !important;
+}
+
+.mkdocs-admonition--normal-comment > .mkdocs-admonition__title,
+.mkdocs-admonition--comment > .mkdocs-admonition__title {
+  background: rgba(252, 219, 89, 0.18) !important;
+  border-bottom-color: rgb(189, 136, 110) !important;
+}
+
+.mkdocs-admonition--reading-info,
+.mkdocs-admonition--info {
+  border-left-color: rgb(76, 175, 80) !important;
+}
+
+.mkdocs-admonition--reading-info > .mkdocs-admonition__title,
+.mkdocs-admonition--info > .mkdocs-admonition__title {
+  background: rgba(76, 175, 80, 0.16) !important;
+  border-bottom-color: rgb(76, 175, 80) !important;
+}
+
+.mkdocs-admonition--note {
+  border-left-color: rgb(108, 150, 187) !important;
+}
+
+.mkdocs-admonition--note > .mkdocs-admonition__title {
+  background: rgba(88, 157, 247, 0.18) !important;
+  border-bottom-color: rgb(108, 150, 187) !important;
+}
+
+.mkdocs-admonition--tip,
+.mkdocs-admonition--important {
+  border-left-color: rgb(108, 187, 162) !important;
+}
+
+.mkdocs-admonition--tip > .mkdocs-admonition__title,
+.mkdocs-admonition--important > .mkdocs-admonition__title {
+  background: rgba(88, 247, 225, 0.18) !important;
+  border-bottom-color: rgb(108, 187, 162) !important;
+}
+
+.dark .mkdocs-admonition--remarks {
+  --mkdocs-admonition-title-bg: rgba(88, 247, 225, 0.1);
+}
+
+.dark .mkdocs-admonition--warning-box,
+.dark .mkdocs-admonition--warning,
+.dark .mkdocs-admonition--caution {
+  --mkdocs-admonition-title-bg: rgba(254, 93, 93, 0.1);
+}
+
+.dark .mkdocs-admonition--examples,
+.dark .mkdocs-admonition--example,
+.dark .mkdocs-admonition--note {
+  --mkdocs-admonition-title-bg: rgba(88, 157, 247, 0.1);
+}
+
+.dark .mkdocs-admonition--normal-comment,
+.dark .mkdocs-admonition--comment {
+  --mkdocs-admonition-title-bg: rgba(252, 219, 89, 0.1);
+}
+
+.dark .mkdocs-admonition--reading-info,
+.dark .mkdocs-admonition--info {
+  --mkdocs-admonition-title-bg: rgba(76, 175, 80, 0.12);
+}
+
+.dark .mkdocs-admonition--tip,
+.dark .mkdocs-admonition--important {
+  --mkdocs-admonition-title-bg: rgba(88, 247, 225, 0.1);
+}
+
+.dark .mkdocs-admonition--remarks > .mkdocs-admonition__title {
+  background: rgba(88, 247, 225, 0.1) !important;
+}
+
+.dark .mkdocs-admonition--warning-box > .mkdocs-admonition__title,
+.dark .mkdocs-admonition--warning > .mkdocs-admonition__title,
+.dark .mkdocs-admonition--caution > .mkdocs-admonition__title {
+  background: rgba(254, 93, 93, 0.1) !important;
+}
+
+.dark .mkdocs-admonition--examples > .mkdocs-admonition__title,
+.dark .mkdocs-admonition--example > .mkdocs-admonition__title,
+.dark .mkdocs-admonition--note > .mkdocs-admonition__title {
+  background: rgba(88, 157, 247, 0.1) !important;
+}
+
+.dark .mkdocs-admonition--normal-comment > .mkdocs-admonition__title,
+.dark .mkdocs-admonition--comment > .mkdocs-admonition__title {
+  background: rgba(252, 219, 89, 0.1) !important;
+}
+
+.dark .mkdocs-admonition--reading-info > .mkdocs-admonition__title,
+.dark .mkdocs-admonition--info > .mkdocs-admonition__title {
+  background: rgba(76, 175, 80, 0.12) !important;
+}
+
+.dark .mkdocs-admonition--tip > .mkdocs-admonition__title,
+.dark .mkdocs-admonition--important > .mkdocs-admonition__title {
+  background: rgba(88, 247, 225, 0.1) !important;
+}
+
+.mkdocs-admonition--pure {
+  background: rgba(235, 250, 240, 0.9);
+  border-left-color: rgba(147, 185, 125, 0.75);
+  border-radius: 0.3rem;
+  padding-right: 0.75rem;
+}
+
+.mkdocs-admonition--pure .mkdocs-admonition__content {
+  padding: 0.1rem 0;
+}
+
+.mkdocs-admonition--pure .mkdocs-admonition__title {
+  background: rgba(235, 250, 240, 0.9);
+}
+
+.dark .mkdocs-admonition--pure {
+  background: rgba(147, 248, 156, 0.05);
+  border-left-color: rgba(166, 209, 170, 0.5);
+}
+
+.dark .mkdocs-admonition--pure .mkdocs-admonition__title {
+  background: rgba(147, 248, 156, 0.05);
+}
+
+@media (max-width: 768px) {
+  .mkdocs-admonition {
+    padding-left: 0.875rem;
+  }
+
+  .mkdocs-admonition__content {
+    font-size: 0.91rem;
+  }
+
+  .mkdocs-admonition .mkdocs-admonition {
+    margin-left: 0.5rem;
+  }
+}

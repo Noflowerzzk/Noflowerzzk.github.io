@@ -1,0 +1,61 @@
+{{/* Article navigation based on mkdocs.yml order */}}
+
+{{- $entries := hugo.Data.mkdocs_nav.linear_pages | default slice -}}
+{{- $currentHref := .RelPermalink -}}
+{{- $currentIndex := -1 -}}
+
+{{- range $idx, $entry := $entries -}}
+  {{- if eq ($entry.href | default "") $currentHref -}}
+    {{- $currentIndex = $idx -}}
+  {{- end -}}
+{{- end -}}
+
+{{- $prev := false -}}
+{{- $next := false -}}
+
+{{- if ge $currentIndex 0 -}}
+  {{- if gt $currentIndex 0 -}}
+    {{- $prev = index $entries (sub $currentIndex 1) -}}
+  {{- end -}}
+  {{- if lt (add $currentIndex 1) (len $entries) -}}
+    {{- $next = index $entries (add $currentIndex 1) -}}
+  {{- end -}}
+{{- end -}}
+
+{{- if eq .Params.prev false }}{{ $prev = false }}{{ end -}}
+{{- if eq .Params.next false }}{{ $next = false }}{{ end -}}
+
+{{- with .Params.prev -}}
+  {{- $prev = dict "href" . "title" . -}}
+{{- end -}}
+
+{{- with .Params.next -}}
+  {{- $next = dict "href" . "title" . -}}
+{{- end -}}
+
+{{- if or $prev $next -}}
+  <div data-mkdocs-pager="1" class="hx:mb-8 hx:flex hx:items-center hx:border-t hx:pt-8 hx:border-gray-200 hx:dark:border-neutral-800 hx:contrast-more:border-neutral-400 hx:dark:contrast-more:border-neutral-400 hx:print:hidden">
+    {{- if $prev -}}
+      {{- $linkTitle := $prev.title | default "" -}}
+      <a
+        href="{{ $prev.href }}"
+        title="{{ $linkTitle }}"
+        class="hx:flex hx:max-w-[50%] hx:items-center hx:gap-1 hx:py-4 hx:text-base hx:font-medium hx:text-gray-600 hx:transition-colors [word-break:break-word] hx:hover:text-primary-600 hx:dark:text-gray-300 hx:md:text-lg hx:ltr:pr-4 hx:rtl:pl-4"
+      >
+        {{- partial "utils/icon.html" (dict "name" "chevron-right" "attributes" "class=\"hx:inline hx:h-5 hx:shrink-0 hx:ltr:rotate-180\"") -}}
+        {{- $linkTitle -}}
+      </a>
+    {{- end -}}
+    {{- if $next -}}
+      {{- $linkTitle := $next.title | default "" -}}
+      <a
+        href="{{ $next.href }}"
+        title="{{ $linkTitle }}"
+        class="hx:flex hx:max-w-[50%] hx:items-center hx:gap-1 hx:py-4 hx:text-base hx:font-medium hx:text-gray-600 hx:transition-colors [word-break:break-word] hx:hover:text-primary-600 hx:dark:text-gray-300 hx:md:text-lg hx:ltr:ml-auto hx:ltr:pl-4 hx:ltr:text-right hx:rtl:mr-auto hx:rtl:pr-4 hx:rtl:text-left"
+      >
+        {{- $linkTitle -}}
+        {{- partial "utils/icon.html" (dict "name" "chevron-right" "attributes" "class=\"hx:inline hx:h-5 hx:shrink-0 hx:rtl:-rotate-180\"") -}}
+      </a>
+    {{- end -}}
+  </div>
+{{- end -}}

@@ -1,0 +1,22 @@
+{{ define "main" }}
+  {{- $entries := slice -}}
+  {{- with (index hugo.Data .Site.Language.Lang "termbase") -}}
+    {{- $entries = . -}}
+  {{- end -}}
+  <div class="hx:mx-auto hx:flex hx:max-w-[90rem]">
+    <article class="hx:w-full hx:min-w-0 hx:max-w-6xl hx:px-6 hx:pt-4 md:hx:px-12">
+      <header class="hx:mt-8">
+        <h1 class="hx:text-4xl hx:font-extrabold hx:text-slate-900 dark:hx:text-slate-100">Glossary</h1>
+      </header>
+      <div class="content hx:mt-8">
+        {{- range $entries -}}
+          <section id="{{ anchorize .term }}" class="hx:mb-10">
+            <h2>{{ .term }}</h2>
+            {{- with .abbr }}<p><strong>{{ . }}</strong></p>{{ end -}}
+            <p>{{ .definition | markdownify }}</p>
+          </section>
+        {{- end -}}
+      </div>
+    </article>
+  </div>
+{{ end }}

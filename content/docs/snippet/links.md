@@ -1,0 +1,3 @@
+- [各种数据结构的可视化：https://www.cs.usfca.edu/~galles/visualization/Algorithms.html](https://www.cs.usfca.edu/~galles/visualization/Algorithms.html)   
+- [红黑树可视化](https://abiesjqq.github.io/Abies_Notebook/CourseNotes/Advance%20Data%20Structure/RBTree_visualizer.html)
+- [A* 可视化](/docs/NoflowersNotes/人工智能基础/启发式搜索算法/a_star/)

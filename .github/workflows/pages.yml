@@ -23,7 +23,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      GO_VERSION: "1.26.1"
+      GO_VERSION: "1.26.2"
       HUGO_VERSION: "0.160.0"
       PYTHON_VERSION: "3.13"
     steps:

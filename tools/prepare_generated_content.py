@@ -94,6 +94,11 @@ def main() -> None:
         check=True,
         cwd=site_root,
     )
+    subprocess.run(
+        [sys.executable, str(site_root / "tools" / "apply_commit_dates.py")],
+        check=True,
+        cwd=site_root,
+    )
 
     print(f"prepared generated content at {generated_root}")
 

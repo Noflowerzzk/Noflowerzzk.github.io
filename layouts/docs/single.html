@@ -13,7 +13,10 @@
               {{ if .IsPage }}
                 {{ $readingTime := .ReadingTime }}
                 {{ if lt $readingTime 1 }}{{ $readingTime = 1 }}{{ end }}
-                <div class="page-reading-meta">约 {{ $readingTime }} 分钟阅读 · {{ .WordCount }} 字</div>
+                {{ $dateFormat := site.Params.dateFormat | default "2006-01-02" }}
+                <div class="page-reading-meta">
+                  {{ with .Date }}创建 {{ .Format $dateFormat }} · {{ end }}{{ with .Lastmod }}更新 {{ .Format $dateFormat }} · {{ end }}约 {{ $readingTime }} 分钟阅读 · {{ .WordCount }} 字
+                </div>
               {{ end }}
             </div>
             {{ partial "components/page-context-menu" . }}

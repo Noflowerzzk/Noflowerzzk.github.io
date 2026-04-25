@@ -102,104 +102,104 @@ nav:
           - 因果效应估计: 自学记录/数学/因果效应估计/因果效应估计.md
       - AI 实践:
           - 扩散模型训练 -- Generative Models 为例: 自学记录/AI/DiffusionTraining/DiffusionTraining.md
-  - 课程笔记:
-      - 扉页: CourseNotes/note_index.md
-      - 计算机体系结构:
-          - Lec1 绪论: CourseNotes/Computer Architecture/CA01.md
-          - 实验部分:
-              - lab0 zju git使用备注: CourseNotes/Computer Architecture/CA_labs/CA_lab0.md
-      - 数据库系统:
-          - Lec1 数据库基本概念: CourseNotes/Database System/DB01.md
-          - Lec2 关系模型: CourseNotes/Database System/DB02.md
-      - 量子信息基础: 
-          - Lec1 信息与信息熵: CourseNotes/Quantum Information/QI01.md
-          - Lec2 电磁波与狄拉克符号: CourseNotes/Quantum Information/QI02.md
-          - 实验部分:
-              - lab2 量子态的描述与量子密钥分发: CourseNotes/Quantum Information/QI_labs/QI_lab2.md
-      - 计算机组成:
-          - Ch1 介绍: CourseNotes/Computer Organization/lecture notes/COchap01.md
-          - Ch3 基本运算: CourseNotes/Computer Organization/lecture notes/COchap03.md
-          - Ch2 指令集: CourseNotes/Computer Organization/lecture notes/COchap02.md
-          - Ch4 处理器: CourseNotes/Computer Organization/lecture notes/COchap04.md
-          - Ch5 存储结构: CourseNotes/Computer Organization/lecture notes/COchap05.md
-          - Ch6 附录: CourseNotes/Computer Organization/lecture notes/COchap06.md
-          - 期末复习: CourseNotes/Computer Organization/lecture notes/CO0.md
-          - 实验记录: 
-              - vivado: CourseNotes/Computer Organization/experiment notes/vivado intro.md
-              - CPU: CourseNotes/Computer Organization/experiment notes/CPU.md
-      - 高级数据结构与算法分析:
-          - 讲义: CourseNotes/Advance Data Structure/ADS00.md
-          - AVL树, Splay树: CourseNotes/Advance Data Structure/ADS01.md
-          - 红黑树, B+树: CourseNotes/Advance Data Structure/ADS02.md
-          - 倒排索引: CourseNotes/Advance Data Structure/ADS03.md
-          - 左偏堆，斜堆: CourseNotes/Advance Data Structure/ADS04.md
-          - 二项队列: CourseNotes/Advance Data Structure/ADS05.md
-          - 回溯: CourseNotes/Advance Data Structure/ADS06.md
-          - 分治: CourseNotes/Advance Data Structure/ADS07.md
-          - 动态规划: CourseNotes/Advance Data Structure/ADS08.md
-          - 贪心算法: CourseNotes/Advance Data Structure/ADS09.md
-          - P/NP问题: CourseNotes/Advance Data Structure/ADS10.md
-          - 近似算法: CourseNotes/Advance Data Structure/ADS11.md
-          - 局部搜索: CourseNotes/Advance Data Structure/ADS12.md
-          - 随机算法: CourseNotes/Advance Data Structure/ADS13.md
-          - 并行算法: CourseNotes/Advance Data Structure/ADS14.md
-          - 外部排序: CourseNotes/Advance Data Structure/ADS15.md
-          - 期中复习: CourseNotes/Advance Data Structure/ADS_mid.md
-      - 普通物理学II:
-          - 数学基础: CourseNotes/General Physics II/Phy00.md
-          - 库伦定律，高斯定律: CourseNotes/General Physics II/Phy01.md
-          - 电势，导体: CourseNotes/General Physics II/Phy02.md
-          - 电容，电介质: CourseNotes/General Physics II/Phy03.md 
-          - 欧姆定律，电路: CourseNotes/General Physics II/Phy04.md
-          - 静磁场，磁力: CourseNotes/General Physics II/Phy05.md
-          - 电磁感应，电感: CourseNotes/General Physics II/Phy06.md
-      - 概率论与数理统计:
-          - Ch1 基本概念: CourseNotes/Probability/PRO01.md
-          - Ch2 一维随机变量: CourseNotes/Probability/PRO02.md
-          - Ch3 二维随机变量: CourseNotes/Probability/PRO03.md
-          - Ch4 随机变量的数字特征: CourseNotes/Probability/PRO04.md
-          - Ch5 大数定律与中心极限定理: CourseNotes/Probability/PRO05.md
-          - Ch6 数理统计的基本概念: CourseNotes/Probability/PRO06.md
-      - 工程图学:
-          - 投影画法: CourseNotes/Engineering Graphics/EG01.md
-          - 标准件: CourseNotes/Engineering Graphics/EG02.md
-          - 零件图: CourseNotes/Engineering Graphics/EG03.md
-          - 读图: CourseNotes/Engineering Graphics/EG04.md
-      - 数据结构基础:
-          - 数据结构复习: CourseNotes/Fundamental Data Structure/0. 期末复习.md
-          - 时间复杂度: CourseNotes/Fundamental Data Structure/1. 时间复杂度.md
-          - 最大连续和子数组: CourseNotes/Fundamental Data Structure/2. 最大连续和子数组.md
-          - 堆栈和队列: CourseNotes/Fundamental Data Structure/3. 堆栈和队列.md
-          - 树的概念: CourseNotes/Fundamental Data Structure/4. 树的概念.md
-          - 树的遍历和特殊的树: CourseNotes/Fundamental Data Structure/5. 树的遍历和特殊的树.md
-          - 一些题目和笔记: CourseNotes/Fundamental Data Structure/5.5 一些题目和笔记.md
-          - 堆的实现: CourseNotes/Fundamental Data Structure/6. 堆的实现.md
-          - 并查集和图: CourseNotes/Fundamental Data Structure/7. 并查集和图.md
-          - 拓扑排序和Dijkstra: CourseNotes/Fundamental Data Structure/8. 拓扑排序和Dijkstra.md
-          - Floyd和AOE网: CourseNotes/Fundamental Data Structure/9. Floyd和AOE网.md
-          - 网络流问题和最小生成树: CourseNotes/Fundamental Data Structure/10. 网络流问题和最小生成树.md
-          - 双连通图和欧拉回路: CourseNotes/Fundamental Data Structure/11. 双连通图和欧拉回路.md
-          - 希尔，堆，归并，快速排序: CourseNotes/Fundamental Data Structure/12. 希尔，堆，归并，快速排序.md
-          - 循环不变式和区块链: CourseNotes/Fundamental Data Structure/13. 循环不变式和区块链.md
-          - 比特币和哈希: CourseNotes/Fundamental Data Structure/14. 比特币和哈希.md
-          - 哈希动态查找: CourseNotes/Fundamental Data Structure/15. 哈希动态查找.md
-          - 一些代码: CourseNotes/Fundamental Data Structure/15.5 一些代码.md
-      - C语言程序设计: 
-          - C语言笔记: CourseNotes/C Programming/CNote.md
-      - 机器人感知与运动控制(短):
-          - 绪论: CourseNotes/robot control/theoretical/lec 01 intro.md
-          - 传感器模组: CourseNotes/robot control/theoretical/lec 02 sensors.md
-          - 数字图像处理: CourseNotes/robot control/theoretical/lec 03 CV.md
-          - 刚体动力学概述: CourseNotes/robot control/theoretical/lec 04 mechanics.md
-          - 机器人导航规划: CourseNotes/robot control/theoretical/lec 05 motion.md
-          - 实践课:
-              - 激光扫描仪和点云处理: CourseNotes/robot control/practical/scanner.md
-              - OpenCV视频处理: CourseNotes/robot control/practical/video.md
-              - 机器人控制: CourseNotes/robot control/practical/rigid-body kinematics.md
-              - Taichi简介: CourseNotes/robot control/practical/taichi intro.md
-              - rigid_body代码说明: CourseNotes/robot control/practical/robot intro.md
-      - 马克思主义基本原理:
-              - 期末碎碎念: CourseNotes/Marxism/MBP_final.md
+#   - 课程笔记:
+#       - 扉页: CourseNotes/note_index.md
+#       - 计算机体系结构:
+#           - Lec1 绪论: CourseNotes/Computer Architecture/CA01.md
+#           - 实验部分:
+#               - lab0 zju git使用备注: CourseNotes/Computer Architecture/CA_labs/CA_lab0.md
+#       - 数据库系统:
+#           - Lec1 数据库基本概念: CourseNotes/Database System/DB01.md
+#           - Lec2 关系模型: CourseNotes/Database System/DB02.md
+#       - 量子信息基础: 
+#           - Lec1 信息与信息熵: CourseNotes/Quantum Information/QI01.md
+#           - Lec2 电磁波与狄拉克符号: CourseNotes/Quantum Information/QI02.md
+#           - 实验部分:
+#               - lab2 量子态的描述与量子密钥分发: CourseNotes/Quantum Information/QI_labs/QI_lab2.md
+#       - 计算机组成:
+#           - Ch1 介绍: CourseNotes/Computer Organization/lecture notes/COchap01.md
+#           - Ch3 基本运算: CourseNotes/Computer Organization/lecture notes/COchap03.md
+#           - Ch2 指令集: CourseNotes/Computer Organization/lecture notes/COchap02.md
+#           - Ch4 处理器: CourseNotes/Computer Organization/lecture notes/COchap04.md
+#           - Ch5 存储结构: CourseNotes/Computer Organization/lecture notes/COchap05.md
+#           - Ch6 附录: CourseNotes/Computer Organization/lecture notes/COchap06.md
+#           - 期末复习: CourseNotes/Computer Organization/lecture notes/CO0.md
+#           - 实验记录: 
+#               - vivado: CourseNotes/Computer Organization/experiment notes/vivado intro.md
+#               - CPU: CourseNotes/Computer Organization/experiment notes/CPU.md
+#       - 高级数据结构与算法分析:
+#           - 讲义: CourseNotes/Advance Data Structure/ADS00.md
+#           - AVL树, Splay树: CourseNotes/Advance Data Structure/ADS01.md
+#           - 红黑树, B+树: CourseNotes/Advance Data Structure/ADS02.md
+#           - 倒排索引: CourseNotes/Advance Data Structure/ADS03.md
+#           - 左偏堆，斜堆: CourseNotes/Advance Data Structure/ADS04.md
+#           - 二项队列: CourseNotes/Advance Data Structure/ADS05.md
+#           - 回溯: CourseNotes/Advance Data Structure/ADS06.md
+#           - 分治: CourseNotes/Advance Data Structure/ADS07.md
+#           - 动态规划: CourseNotes/Advance Data Structure/ADS08.md
+#           - 贪心算法: CourseNotes/Advance Data Structure/ADS09.md
+#           - P/NP问题: CourseNotes/Advance Data Structure/ADS10.md
+#           - 近似算法: CourseNotes/Advance Data Structure/ADS11.md
+#           - 局部搜索: CourseNotes/Advance Data Structure/ADS12.md
+#           - 随机算法: CourseNotes/Advance Data Structure/ADS13.md
+#           - 并行算法: CourseNotes/Advance Data Structure/ADS14.md
+#           - 外部排序: CourseNotes/Advance Data Structure/ADS15.md
+#           - 期中复习: CourseNotes/Advance Data Structure/ADS_mid.md
+#       - 普通物理学II:
+#           - 数学基础: CourseNotes/General Physics II/Phy00.md
+#           - 库伦定律，高斯定律: CourseNotes/General Physics II/Phy01.md
+#           - 电势，导体: CourseNotes/General Physics II/Phy02.md
+#           - 电容，电介质: CourseNotes/General Physics II/Phy03.md 
+#           - 欧姆定律，电路: CourseNotes/General Physics II/Phy04.md
+#           - 静磁场，磁力: CourseNotes/General Physics II/Phy05.md
+#           - 电磁感应，电感: CourseNotes/General Physics II/Phy06.md
+#       - 概率论与数理统计:
+#           - Ch1 基本概念: CourseNotes/Probability/PRO01.md
+#           - Ch2 一维随机变量: CourseNotes/Probability/PRO02.md
+#           - Ch3 二维随机变量: CourseNotes/Probability/PRO03.md
+#           - Ch4 随机变量的数字特征: CourseNotes/Probability/PRO04.md
+#           - Ch5 大数定律与中心极限定理: CourseNotes/Probability/PRO05.md
+#           - Ch6 数理统计的基本概念: CourseNotes/Probability/PRO06.md
+#       - 工程图学:
+#           - 投影画法: CourseNotes/Engineering Graphics/EG01.md
+#           - 标准件: CourseNotes/Engineering Graphics/EG02.md
+#           - 零件图: CourseNotes/Engineering Graphics/EG03.md
+#           - 读图: CourseNotes/Engineering Graphics/EG04.md
+#       - 数据结构基础:
+#           - 数据结构复习: CourseNotes/Fundamental Data Structure/0. 期末复习.md
+#           - 时间复杂度: CourseNotes/Fundamental Data Structure/1. 时间复杂度.md
+#           - 最大连续和子数组: CourseNotes/Fundamental Data Structure/2. 最大连续和子数组.md
+#           - 堆栈和队列: CourseNotes/Fundamental Data Structure/3. 堆栈和队列.md
+#           - 树的概念: CourseNotes/Fundamental Data Structure/4. 树的概念.md
+#           - 树的遍历和特殊的树: CourseNotes/Fundamental Data Structure/5. 树的遍历和特殊的树.md
+#           - 一些题目和笔记: CourseNotes/Fundamental Data Structure/5.5 一些题目和笔记.md
+#           - 堆的实现: CourseNotes/Fundamental Data Structure/6. 堆的实现.md
+#           - 并查集和图: CourseNotes/Fundamental Data Structure/7. 并查集和图.md
+#           - 拓扑排序和Dijkstra: CourseNotes/Fundamental Data Structure/8. 拓扑排序和Dijkstra.md
+#           - Floyd和AOE网: CourseNotes/Fundamental Data Structure/9. Floyd和AOE网.md
+#           - 网络流问题和最小生成树: CourseNotes/Fundamental Data Structure/10. 网络流问题和最小生成树.md
+#           - 双连通图和欧拉回路: CourseNotes/Fundamental Data Structure/11. 双连通图和欧拉回路.md
+#           - 希尔，堆，归并，快速排序: CourseNotes/Fundamental Data Structure/12. 希尔，堆，归并，快速排序.md
+#           - 循环不变式和区块链: CourseNotes/Fundamental Data Structure/13. 循环不变式和区块链.md
+#           - 比特币和哈希: CourseNotes/Fundamental Data Structure/14. 比特币和哈希.md
+#           - 哈希动态查找: CourseNotes/Fundamental Data Structure/15. 哈希动态查找.md
+#           - 一些代码: CourseNotes/Fundamental Data Structure/15.5 一些代码.md
+#       - C语言程序设计: 
+#           - C语言笔记: CourseNotes/C Programming/CNote.md
+#       - 机器人感知与运动控制(短):
+#           - 绪论: CourseNotes/robot control/theoretical/lec 01 intro.md
+#           - 传感器模组: CourseNotes/robot control/theoretical/lec 02 sensors.md
+#           - 数字图像处理: CourseNotes/robot control/theoretical/lec 03 CV.md
+#           - 刚体动力学概述: CourseNotes/robot control/theoretical/lec 04 mechanics.md
+#           - 机器人导航规划: CourseNotes/robot control/theoretical/lec 05 motion.md
+#           - 实践课:
+#               - 激光扫描仪和点云处理: CourseNotes/robot control/practical/scanner.md
+#               - OpenCV视频处理: CourseNotes/robot control/practical/video.md
+#               - 机器人控制: CourseNotes/robot control/practical/rigid-body kinematics.md
+#               - Taichi简介: CourseNotes/robot control/practical/taichi intro.md
+#               - rigid_body代码说明: CourseNotes/robot control/practical/robot intro.md
+#       - 马克思主义基本原理:
+#               - 期末碎碎念: CourseNotes/Marxism/MBP_final.md
   - Noflower的笔记:
       - 扉页: NoflowersNotes/Noflower_index.md
       - Computer Vision:
@@ -265,76 +265,76 @@ nav:
           - 无限状态马尔可夫链: NoflowersNotes/StochasticProcess/InfinitMC/InfinitMC.md
       - 计算机网络:
           - 网络分层和参考模型: NoflowersNotes/计算机网络/网络分层/网络分层.md
-  - Abies的笔记:
-      - 扉页: AbiesNotes/Abies_index.md
-      - CS231n:
-          - Lec 02 Image Classification: AbiesNotes/CS231n/notes/cs231n_02.md
-          - Lec 03 Loss Functions and Optimization: AbiesNotes/CS231n/notes/cs231n_03.md
-          - Lec 04 Introduction to Neural Networks: AbiesNotes/CS231n/notes/cs231n_04.md
-          - Lec 05 Convolutional Neural Networks: AbiesNotes/CS231n/notes/cs231n_05.md
-          - Lec 06 Training Neural Networks I: AbiesNotes/CS231n/notes/cs231n_06.md
-          - Lec 07 Training Neural Networks II: AbiesNotes/CS231n/notes/cs231n_07.md
-          - Assignment 1:
-              - KNN: AbiesNotes/CS231n/assignments/a1_knn.md
-      - Vision Course:
-          - Camera: AbiesNotes/Vision Course/CV02_camera.md
-          - Color: AbiesNotes/Vision Course/CV03_color.md
-          - HDR: AbiesNotes/Vision Course/CV04_HDR.md
-          - Lighting: AbiesNotes/Vision Course/CV05_lignting.md
-          - Filters: AbiesNotes/Vision Course/CV06_filters.md
-          - Graph Cut: AbiesNotes/Vision Course/CV07_cut.md
-          - Feature Detector: AbiesNotes/Vision Course/CV08_detector.md
-          - Feature Descriptor: AbiesNotes/Vision Course/CV09_descriptor.md
-          - Homography: AbiesNotes/Vision Course/CV10_homography.md
-          - Camera Model: AbiesNotes/Vision Course/CV11_model.md
-      - GAMES101:
-          - Lec 01 Overview of Computer Graphics: AbiesNotes/GAMES101/Lecture 01 Overview of Computer Graphics.md
-          - Lec 02 Review of Linear Algebra: AbiesNotes/GAMES101/Lecture 02 Review of Linear Algebra.md
-          - Lec 03 Transformation: AbiesNotes/GAMES101/Lecture 03 Transformation.md
-          - Lec 04 Transformations Cont.: AbiesNotes/GAMES101/Lecture 04 Transformations Cont.md
-          - Lec 05 Rasterization 1 (Triangles): AbiesNotes/GAMES101/Lecture 05 Rasterization 1 (Triangles).md
-          - Lec 06 Rasterization 2 (Antiliasing): AbiesNotes/GAMES101/Lecture 06 Rasterization 2 (Antiliasing).md
-          - Lec 07 Shading 1 (Illumination, Shading and Graphics Pipelines): AbiesNotes/GAMES101/Lecture 07 Shading 1.md
-          - Lec 08 Shading 2 (Shading, Pipeline and Texture Mapping): AbiesNotes/GAMES101/Lecture 08 Shading 2.md
-          - Lec 09 Shading 3 (Texture Mapping cont.): AbiesNotes/GAMES101/Lecture 09 Shading 3.md
-          - Lec 10 Geomertry 1 (Introduction): AbiesNotes/GAMES101/Lecture 10 Geometry 1.md
-          - Lec 11 Geomertry 2 (Curves and Surfaces): AbiesNotes/GAMES101/Lecture 11 Geometry 2.md
-          - Lec 12 Geometry 3: AbiesNotes/GAMES101/Lecture 12 Geometry 3.md
-          - Lec 13 Ray Tracing 1 (Whitted-Style Ray Tracing): AbiesNotes/GAMES101/Lecture 13 Ray Tracing 1.md
-          - Lec 14 Ray Tracing 2(Acceleration): AbiesNotes/GAMES101/Lecture 14 Ray Tracing 2.md
-          - Lec 15 Ray Tracing 3(Light Transport & Global Illumination): AbiesNotes/GAMES101/Lecture 15 Ray Tracing 3.md
-          - Lec 16 Ray Tracing 4(Monte Carlo Path Tracing): AbiesNotes/GAMES101/Lecture 16 Ray Tracing 4.md
-          - Lec 17 Materials and Appearances: AbiesNotes/GAMES101/Lecture 17 Materials and Appearances.md
-          - Lec 18 Advanced Topics in Rendering: AbiesNotes/GAMES101/Lecture 18 Advanced Topics in Rendering.md
-          - Lec 19 Cameras, Lenses and Light Fields: AbiesNotes/GAMES101/Lecture 19 Cameras, Lenses and Light Fields.md
-      - DeepLearning碎碎念:
-          - 深度学习计算:
-              - 模型构造: AbiesNotes/Dive_into_Deep_Learning/4_1.ipynb
-              - 模型参数: AbiesNotes/Dive_into_Deep_Learning/4_2.ipynb
-              - 自定义层: AbiesNotes/Dive_into_Deep_Learning/4_4.ipynb
-              - 读写: AbiesNotes/Dive_into_Deep_Learning/4_5.ipynb
-              - GPU计算: AbiesNotes/Dive_into_Deep_Learning/4_6.ipynb
-              - Ch5.1 二维卷积层: AbiesNotes/Dive_into_Deep_Learning/5_1.ipynb
-              - Ch5.2: AbiesNotes/Dive_into_Deep_Learning/5_2.ipynb
-              - Ch5.3: AbiesNotes/Dive_into_Deep_Learning/5_3.ipynb
-              - Ch5.4: AbiesNotes/Dive_into_Deep_Learning/5_4.ipynb
-              - Ch5.5: AbiesNotes/Dive_into_Deep_Learning/5_5.ipynb
-              - Ch5.6: AbiesNotes/Dive_into_Deep_Learning/5_6.ipynb
-              - Ch5.7: AbiesNotes/Dive_into_Deep_Learning/5_7.ipynb
-              - Ch5.8: AbiesNotes/Dive_into_Deep_Learning/5_8.ipynb
-          - Kaggle实例:
-              - 房价预测: AbiesNotes/Dive_into_Deep_Learning/HousePrice/kaggle_house_price.ipynb
-          - Python工具:
-              - Pandas: AbiesNotes/Dive_into_Deep_Learning/Pandas_tutorial.ipynb
-      - Tinyrenderer:
-          - Getting started: AbiesNotes/Tinyrenderer/getting started.md
-          - Line: AbiesNotes/Tinyrenderer/line.md
-          - Triangle: AbiesNotes/Tinyrenderer/triangle.md
-          - Texture: AbiesNotes/Tinyrenderer/texture.md
-          - Projection: AbiesNotes/Tinyrenderer/projection.md
-          - Gourand Shading: AbiesNotes/Tinyrenderer/Gourand.md
-          - Camera: AbiesNotes/Tinyrenderer/camera.md
-          - Shader: AbiesNotes/Tinyrenderer/shader.md
+#   - Abies的笔记:
+#       - 扉页: AbiesNotes/Abies_index.md
+#       - CS231n:
+#           - Lec 02 Image Classification: AbiesNotes/CS231n/notes/cs231n_02.md
+#           - Lec 03 Loss Functions and Optimization: AbiesNotes/CS231n/notes/cs231n_03.md
+#           - Lec 04 Introduction to Neural Networks: AbiesNotes/CS231n/notes/cs231n_04.md
+#           - Lec 05 Convolutional Neural Networks: AbiesNotes/CS231n/notes/cs231n_05.md
+#           - Lec 06 Training Neural Networks I: AbiesNotes/CS231n/notes/cs231n_06.md
+#           - Lec 07 Training Neural Networks II: AbiesNotes/CS231n/notes/cs231n_07.md
+#           - Assignment 1:
+#               - KNN: AbiesNotes/CS231n/assignments/a1_knn.md
+#       - Vision Course:
+#           - Camera: AbiesNotes/Vision Course/CV02_camera.md
+#           - Color: AbiesNotes/Vision Course/CV03_color.md
+#           - HDR: AbiesNotes/Vision Course/CV04_HDR.md
+#           - Lighting: AbiesNotes/Vision Course/CV05_lignting.md
+#           - Filters: AbiesNotes/Vision Course/CV06_filters.md
+#           - Graph Cut: AbiesNotes/Vision Course/CV07_cut.md
+#           - Feature Detector: AbiesNotes/Vision Course/CV08_detector.md
+#           - Feature Descriptor: AbiesNotes/Vision Course/CV09_descriptor.md
+#           - Homography: AbiesNotes/Vision Course/CV10_homography.md
+#           - Camera Model: AbiesNotes/Vision Course/CV11_model.md
+#       - GAMES101:
+#           - Lec 01 Overview of Computer Graphics: AbiesNotes/GAMES101/Lecture 01 Overview of Computer Graphics.md
+#           - Lec 02 Review of Linear Algebra: AbiesNotes/GAMES101/Lecture 02 Review of Linear Algebra.md
+#           - Lec 03 Transformation: AbiesNotes/GAMES101/Lecture 03 Transformation.md
+#           - Lec 04 Transformations Cont.: AbiesNotes/GAMES101/Lecture 04 Transformations Cont.md
+#           - Lec 05 Rasterization 1 (Triangles): AbiesNotes/GAMES101/Lecture 05 Rasterization 1 (Triangles).md
+#           - Lec 06 Rasterization 2 (Antiliasing): AbiesNotes/GAMES101/Lecture 06 Rasterization 2 (Antiliasing).md
+#           - Lec 07 Shading 1 (Illumination, Shading and Graphics Pipelines): AbiesNotes/GAMES101/Lecture 07 Shading 1.md
+#           - Lec 08 Shading 2 (Shading, Pipeline and Texture Mapping): AbiesNotes/GAMES101/Lecture 08 Shading 2.md
+#           - Lec 09 Shading 3 (Texture Mapping cont.): AbiesNotes/GAMES101/Lecture 09 Shading 3.md
+#           - Lec 10 Geomertry 1 (Introduction): AbiesNotes/GAMES101/Lecture 10 Geometry 1.md
+#           - Lec 11 Geomertry 2 (Curves and Surfaces): AbiesNotes/GAMES101/Lecture 11 Geometry 2.md
+#           - Lec 12 Geometry 3: AbiesNotes/GAMES101/Lecture 12 Geometry 3.md
+#           - Lec 13 Ray Tracing 1 (Whitted-Style Ray Tracing): AbiesNotes/GAMES101/Lecture 13 Ray Tracing 1.md
+#           - Lec 14 Ray Tracing 2(Acceleration): AbiesNotes/GAMES101/Lecture 14 Ray Tracing 2.md
+#           - Lec 15 Ray Tracing 3(Light Transport & Global Illumination): AbiesNotes/GAMES101/Lecture 15 Ray Tracing 3.md
+#           - Lec 16 Ray Tracing 4(Monte Carlo Path Tracing): AbiesNotes/GAMES101/Lecture 16 Ray Tracing 4.md
+#           - Lec 17 Materials and Appearances: AbiesNotes/GAMES101/Lecture 17 Materials and Appearances.md
+#           - Lec 18 Advanced Topics in Rendering: AbiesNotes/GAMES101/Lecture 18 Advanced Topics in Rendering.md
+#           - Lec 19 Cameras, Lenses and Light Fields: AbiesNotes/GAMES101/Lecture 19 Cameras, Lenses and Light Fields.md
+#       - DeepLearning碎碎念:
+#           - 深度学习计算:
+#               - 模型构造: AbiesNotes/Dive_into_Deep_Learning/4_1.ipynb
+#               - 模型参数: AbiesNotes/Dive_into_Deep_Learning/4_2.ipynb
+#               - 自定义层: AbiesNotes/Dive_into_Deep_Learning/4_4.ipynb
+#               - 读写: AbiesNotes/Dive_into_Deep_Learning/4_5.ipynb
+#               - GPU计算: AbiesNotes/Dive_into_Deep_Learning/4_6.ipynb
+#               - Ch5.1 二维卷积层: AbiesNotes/Dive_into_Deep_Learning/5_1.ipynb
+#               - Ch5.2: AbiesNotes/Dive_into_Deep_Learning/5_2.ipynb
+#               - Ch5.3: AbiesNotes/Dive_into_Deep_Learning/5_3.ipynb
+#               - Ch5.4: AbiesNotes/Dive_into_Deep_Learning/5_4.ipynb
+#               - Ch5.5: AbiesNotes/Dive_into_Deep_Learning/5_5.ipynb
+#               - Ch5.6: AbiesNotes/Dive_into_Deep_Learning/5_6.ipynb
+#               - Ch5.7: AbiesNotes/Dive_into_Deep_Learning/5_7.ipynb
+#               - Ch5.8: AbiesNotes/Dive_into_Deep_Learning/5_8.ipynb
+#           - Kaggle实例:
+#               - 房价预测: AbiesNotes/Dive_into_Deep_Learning/HousePrice/kaggle_house_price.ipynb
+#           - Python工具:
+#               - Pandas: AbiesNotes/Dive_into_Deep_Learning/Pandas_tutorial.ipynb
+#       - Tinyrenderer:
+#           - Getting started: AbiesNotes/Tinyrenderer/getting started.md
+#           - Line: AbiesNotes/Tinyrenderer/line.md
+#           - Triangle: AbiesNotes/Tinyrenderer/triangle.md
+#           - Texture: AbiesNotes/Tinyrenderer/texture.md
+#           - Projection: AbiesNotes/Tinyrenderer/projection.md
+#           - Gourand Shading: AbiesNotes/Tinyrenderer/Gourand.md
+#           - Camera: AbiesNotes/Tinyrenderer/camera.md
+#           - Shader: AbiesNotes/Tinyrenderer/shader.md
   - 论文阅读:
       - 4D Generation:
           - L4GM: 论文阅读/4D生成/L4GM/L4GM.md

@@ -81,15 +81,31 @@ def generated_rel_to_source_candidates(rel_path: str) -> list[str]:
     ]
 
 
-def commit_dates_for_path(repo: Path, source_path: str) -> tuple[str, str] | None:
-    ref_path = f"origin/{REMOTE_REF}"
+def load_repo_paths(repo: Path, ref: str) -> set[str]:
+    result = run_git(["ls-tree", "-r", "--name-only", ref], cwd=repo)
+    return {line.strip().replace("\\", "/") for line in result.stdout.splitlines() if line.strip()}
+
+
+def generated_rel_to_current_source_candidates(rel_path: str) -> list[str]:
+    normalized = rel_path.replace("\\", "/")
+    if normalized.endswith("/_index.md"):
+        normalized = normalized[: -len("/_index.md")] + "/index.md"
+    elif normalized == "_index.md":
+        normalized = "index.md"
+
+    return [
+        f"content/docs/{normalized}",
+    ]
+
+
+def commit_dates_for_path(repo: Path, source_path: str, ref: str = "HEAD") -> tuple[str, str] | None:
     try:
         created = run_git(
-            ["log", "--follow", "--format=%aI", "--reverse", ref_path, "--", source_path],
+            ["log", "--follow", "--format=%aI", "--reverse", ref, "--", source_path],
             cwd=repo,
         ).stdout.splitlines()
         updated = run_git(
-            ["log", "--follow", "-1", "--format=%aI", ref_path, "--", source_path],
+            ["log", "--follow", "-1", "--format=%aI", ref, "--", source_path],
             cwd=repo,
         ).stdout.splitlines()
     except subprocess.CalledProcessError as exc:
@@ -175,11 +191,10 @@ def fetch_github_profile(login: str) -> dict:
     return profile
 
 
-def authors_for_path(repo: Path, source_path: str) -> list[dict]:
-    ref_path = f"origin/{REMOTE_REF}"
+def authors_for_path(repo: Path, source_path: str, ref: str = "HEAD") -> list[dict]:
     try:
         result = run_git(
-            ["log", "--follow", "--reverse", "--format=%an%x00%ae", ref_path, "--", source_path],
+            ["log", "--follow", "--reverse", "--format=%an%x00%ae", ref, "--", source_path],
             cwd=repo,
         )
     except subprocess.CalledProcessError as exc:
@@ -200,6 +215,27 @@ def authors_for_path(repo: Path, source_path: str) -> list[dict]:
         if author:
             authors.append(author)
     return authors
+
+
+def merge_authors(author_groups: list[list[dict]]) -> list[dict]:
+    merged = []
+    seen = set()
+    for authors in author_groups:
+        for author in authors:
+            key = (author.get("login") or author.get("email") or author.get("name") or "").lower()
+            if not key or key in seen:
+                continue
+            seen.add(key)
+            merged.append(author)
+    return merged
+
+
+def merge_dates(date_groups: list[tuple[str, str]]) -> tuple[str, str] | None:
+    if not date_groups:
+        return None
+    created = min(group[0] for group in date_groups)
+    updated = max(group[1] for group in date_groups)
+    return created, updated
 
 
 def load_frontmatter(path: Path) -> tuple[dict, str]:
@@ -246,33 +282,51 @@ def main() -> None:
     if not docs_root.exists():
         raise FileNotFoundError(f"generated docs root not found: {docs_root}")
 
-    repo = ensure_history_repo(site_root)
-    if repo is None:
-        print("commit-date sync skipped")
-        return
-
-    old_paths = load_old_paths(repo)
-    date_cache: dict[str, tuple[str, str]] = {}
-    author_cache: dict[str, list[dict]] = {}
+    old_repo = ensure_history_repo(site_root)
+    old_paths = load_old_paths(old_repo) if old_repo else set()
+    current_paths = load_repo_paths(site_root, "HEAD")
+    date_cache: dict[tuple[Path, str, str], tuple[str, str] | None] = {}
+    author_cache: dict[tuple[Path, str, str], list[dict]] = {}
     matched = 0
     changed = 0
 
     for path in docs_root.rglob("*.md"):
         rel_path = path.relative_to(docs_root).as_posix()
-        source_path = next((candidate for candidate in generated_rel_to_source_candidates(rel_path) if candidate in old_paths), None)
-        if source_path is None:
+        sources: list[tuple[Path, str, str]] = []
+
+        if old_repo:
+            old_source = next((candidate for candidate in generated_rel_to_source_candidates(rel_path) if candidate in old_paths), None)
+            if old_source:
+                sources.append((old_repo, old_source, f"origin/{REMOTE_REF}"))
+
+        current_source = next((candidate for candidate in generated_rel_to_current_source_candidates(rel_path) if candidate in current_paths), None)
+        if current_source:
+            sources.append((site_root, current_source, "HEAD"))
+
+        if not sources:
             continue
 
-        dates = date_cache.get(source_path)
+        date_groups = []
+        author_groups = []
+        for source_repo, source_path, source_ref in sources:
+            cache_key = (source_repo, source_path, source_ref)
+            dates = date_cache.get(cache_key)
+            if cache_key not in date_cache:
+                dates = commit_dates_for_path(source_repo, source_path, source_ref)
+                date_cache[cache_key] = dates
+            if dates:
+                date_groups.append(dates)
+
+            authors = author_cache.get(cache_key)
+            if authors is None:
+                authors = authors_for_path(source_repo, source_path, source_ref)
+                author_cache[cache_key] = authors
+            author_groups.append(authors)
+
+        dates = merge_dates(date_groups)
         if dates is None:
-            dates = commit_dates_for_path(repo, source_path)
-            if dates is None:
-                continue
-            date_cache[source_path] = dates
-        authors = author_cache.get(source_path)
-        if authors is None:
-            authors = authors_for_path(repo, source_path)
-            author_cache[source_path] = authors
+            continue
+        authors = merge_authors(author_groups)
 
         matched += 1
         if apply_metadata_to_file(path, dates[0], dates[1], authors):

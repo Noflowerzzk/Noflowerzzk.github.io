@@ -71,7 +71,7 @@ menu:
     params:
       type: search
   - name: GitHub
-    url: https://github.com/Abiesjqq
+    url: https://github.com/Noflowerzzk
     weight: 7
     params:
       icon: github
@@ -93,7 +93,7 @@ params:
   dateFormat: '2006-01-02'
   editURL:
     enable: true
-    base: https://github.com/Abiesjqq/Abies_Notebook/edit/main/hextra-site/content
+    base: https://github.com/Noflowerzzk/Noflowerzzk.github.io/edit/main/content
   search:
     enable: true
     type: flexsearch

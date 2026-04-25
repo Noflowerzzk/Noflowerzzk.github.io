@@ -1,0 +1,63 @@
+{{- $dateFormat := site.Params.dateFormat | default "2006-01-02" -}}
+{{- $authors := .Params.authors -}}
+{{- if or $authors .Date .Lastmod -}}
+  <aside class="noflower-source-meta">
+    {{- with $authors -}}
+      <div class="noflower-source-meta__authors">
+        <nav class="noflower-author-list" aria-label="Contributors">
+          {{- range . -}}
+            {{- $href := .url | default (printf "mailto:%s" .email) -}}
+            <a class="noflower-author" href="{{ $href }}" target="_blank" rel="noreferrer" aria-label="{{ .name }}">
+              <img src="{{ .avatar }}" alt="{{ .name }}" loading="lazy">
+              <span class="noflower-author-card">
+                <span class="noflower-author-card__header">
+                  <span>Contributor</span>
+                </span>
+                <span class="noflower-author-card__body">
+                  <img class="noflower-author-card__avatar" src="{{ .avatar }}" alt="" loading="lazy">
+                  <span class="noflower-author-card__identity">
+                    <span>
+                      <strong>{{ .login | default .name }}</strong>
+                      {{- with .name }}<span>{{ . }}</span>{{- end -}}
+                    </span>
+                    {{- with .bio }}<em>{{ . }}</em>{{- end -}}
+                  </span>
+                </span>
+                {{- if or .company .location .blog .twitter_username -}}
+                  <span class="noflower-author-card__facts">
+                    {{- with .company -}}<span>{{ . }}</span>{{- end -}}
+                    {{- with .location -}}<span>{{ . }}</span>{{- end -}}
+                    {{- with .blog -}}<span>{{ . }}</span>{{- end -}}
+                    {{- with .twitter_username -}}<span>@{{ . }}</span>{{- end -}}
+                  </span>
+                {{- end -}}
+                <span class="noflower-author-card__commit">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" aria-hidden="true"><path d="M10.5 7.25a2.5 2.5 0 0 0-4.9 0H.75a.75.75 0 0 0 0 1.5H5.6a2.5 2.5 0 0 0 4.9 0h4.75a.75.75 0 0 0 0-1.5Zm-2.45 1.75a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"/></svg>
+                  Committed to this repository
+                </span>
+              </span>
+            </a>
+          {{- end -}}
+        </nav>
+      </div>
+    {{- end -}}
+    <div class="noflower-source-meta__dates">
+      {{- with .Lastmod -}}
+        <span class="noflower-source-date" title="Last updated: {{ .Format $dateFormat }}" aria-label="Last updated">
+          <span class="noflower-source-meta__icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+          </span>
+          <time datetime="{{ .Format "2006-01-02T15:04:05Z07:00" }}">{{ .Format $dateFormat }}</time>
+        </span>
+      {{- end -}}
+      {{- with .Date -}}
+        <span class="noflower-source-date" title="Created: {{ .Format $dateFormat }}" aria-label="Created">
+          <span class="noflower-source-meta__icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
+          </span>
+          <time datetime="{{ .Format "2006-01-02T15:04:05Z07:00" }}">{{ .Format $dateFormat }}</time>
+        </span>
+      {{- end -}}
+    </div>
+  </aside>
+{{- end -}}

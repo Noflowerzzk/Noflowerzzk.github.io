@@ -93,7 +93,7 @@ jobs:
 
       - name: Deploy public directory
         run: |
-          rsync -az --delete \
+          rsync -az --delete --info=progress2,stats2 \
             -e "ssh -p ${SERVER_PORT}" \
             public/ \
             "${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }}:${{ secrets.SERVER_PATH }}/"

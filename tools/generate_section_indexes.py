@@ -65,6 +65,7 @@ def ensure_frontmatter(
     weight: int | None = None,
     link_title: str | None = None,
     url: str | None = None,
+    nav_path: list[dict] | None = None,
 ) -> None:
     if not path.exists():
         return
@@ -82,11 +83,15 @@ def ensure_frontmatter(
     if url and data.get("url") != url:
         data["url"] = url
         changed = True
+    if nav_path and data.get("navPath") != nav_path:
+        data["navPath"] = nav_path
+        changed = True
     if changed:
         path.write_text(dump_frontmatter(data, body), encoding="utf-8")
 
 
-def apply_entry(entry, docs_root: Path, weight: int) -> None:
+def apply_entry(entry, docs_root: Path, weight: int, ancestors: list[dict] | None = None) -> None:
+    ancestors = ancestors or []
     if not isinstance(entry, dict):
         return
 
@@ -94,18 +99,21 @@ def apply_entry(entry, docs_root: Path, weight: int) -> None:
     if isinstance(value, str):
         rel_path = normalize_path(value)
         source_path = docs_root / rel_path
+        url = mkdocs_url_for_rel_path(rel_path)
         ensure_frontmatter(
             source_path,
             title=title,
             weight=weight,
             link_title=title,
-            url=mkdocs_url_for_rel_path(rel_path),
+            url=url,
+            nav_path=[*ancestors, {"title": title, "href": url}],
         )
         return
 
     if isinstance(value, list):
+        branch_path = [*ancestors, {"title": title, "href": ""}]
         for child_weight, child in enumerate(value, start=1):
-            apply_entry(child, docs_root, child_weight)
+            apply_entry(child, docs_root, child_weight, branch_path)
         return
 
 

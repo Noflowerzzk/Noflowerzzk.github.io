@@ -90,6 +90,11 @@ def main() -> None:
         cwd=site_root,
     )
     subprocess.run(
+        [sys.executable, str(site_root / "tools" / "rewrite_tabs.py"), str(generated_root / "docs")],
+        check=True,
+        cwd=site_root,
+    )
+    subprocess.run(
         [sys.executable, str(site_root / "tools" / "generate_section_indexes.py")],
         check=True,
         cwd=site_root,

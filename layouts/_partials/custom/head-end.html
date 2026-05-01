@@ -1,3 +1,12 @@
-<script>document.documentElement.classList.add("noflower-js");</script>
+<script>
+  document.documentElement.classList.add("noflower-js", "noflower-ui-entering");
+  window.setTimeout(function () {
+    document.documentElement.classList.add("noflower-ui-ready");
+  }, 40);
+  window.setTimeout(function () {
+    document.documentElement.classList.add("noflower-ui-ready");
+    document.documentElement.classList.remove("noflower-ui-entering");
+  }, 520);
+</script>
 <script defer src="/js/content-enter.js"></script>
 <script defer src="/js/author-hovercard.js"></script>

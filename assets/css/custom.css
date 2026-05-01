@@ -510,6 +510,50 @@ footer {
   }
 }
 
+@keyframes noflower-ui-enter {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+html.noflower-js.noflower-ui-ready .hextra-nav-container > nav {
+  animation: noflower-ui-enter 220ms ease-out both;
+}
+
+html.noflower-js.noflower-ui-ready .hextra-sidebar-container {
+  animation: noflower-ui-enter 260ms ease-out 45ms both;
+}
+
+html.noflower-js.noflower-ui-ready .hextra-toc {
+  animation: noflower-ui-enter 260ms ease-out 80ms both;
+}
+
+html.noflower-js.noflower-ui-ready :where(#backToTop, footer) {
+  animation: noflower-ui-enter 240ms ease-out 110ms both;
+}
+
+html.noflower-js.noflower-ui-entering:not(.noflower-ui-ready) :where(
+  .hextra-nav-container,
+  .hextra-sidebar-container,
+  .hextra-toc,
+  #backToTop,
+  footer
+) {
+  opacity: 0;
+}
+
+html.noflower-js.noflower-ui-entering:not(.noflower-ui-ready) .hextra-nav-container {
+  opacity: 1;
+}
+
+html.noflower-js.noflower-ui-entering:not(.noflower-ui-ready) .hextra-nav-container > nav {
+  opacity: 0;
+}
+
 html.noflower-js #content > .content:not(.noflower-content-ready) {
   visibility: hidden;
 }
@@ -857,6 +901,26 @@ html.noflower-js #content > .content.noflower-content-ready > :nth-child(n + 6) 
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html.noflower-js.noflower-ui-ready :where(
+    .hextra-nav-container > nav,
+    .hextra-sidebar-container,
+    .hextra-toc,
+    #backToTop,
+    footer
+  ) {
+    animation: none;
+  }
+
+  html.noflower-js.noflower-ui-entering:not(.noflower-ui-ready) :where(
+    .hextra-nav-container,
+    .hextra-sidebar-container,
+    .hextra-toc,
+    #backToTop,
+    footer
+  ) {
+    opacity: 1;
+  }
+
   html.noflower-js #content > .content:not(.noflower-content-ready) {
     visibility: visible;
   }

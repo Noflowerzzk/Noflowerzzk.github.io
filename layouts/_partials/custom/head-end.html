@@ -1,4 +1,11 @@
 <script>
+  {{- $section := "" -}}
+  {{- with .Params.navPath -}}
+    {{- with index . 0 -}}
+      {{- $section = .title -}}
+    {{- end -}}
+  {{- end }}
+  document.documentElement.dataset.noflowerSection = {{ $section | jsonify | safeJS }};
   document.documentElement.classList.add("noflower-js", "noflower-ui-entering");
   window.setTimeout(function () {
     document.documentElement.classList.add("noflower-ui-ready");
@@ -9,4 +16,5 @@
   }, 520);
 </script>
 <script defer src="/js/content-enter.js"></script>
+<script defer src="/js/page-chrome.js"></script>
 <script defer src="/js/author-hovercard.js"></script>

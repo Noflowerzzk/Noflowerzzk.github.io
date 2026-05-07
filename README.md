@@ -1,6 +1,6 @@
 # `hextra-site`
 
-Independent Hugo + Hextra site for Abies's notebook.
+Independent Hugo + Hextra site for 焦糖七七の笔记.
 
 ## Local development
 

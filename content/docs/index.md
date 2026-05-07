@@ -3,11 +3,11 @@ hide:
   - toc
 cover:
   image: /docs/images/flower-dark.jpg
-  alt: Welcome to Abies's Notebook
+  alt: Welcome to 焦糖七七の笔记
   position: center 58%
 ---
 
-# Welcome to Abies's Notebook ~
+# Welcome to 焦糖七七の笔记 ~
 
 <div class="grid cards" markdown>
 

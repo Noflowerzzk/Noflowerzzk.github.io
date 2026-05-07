@@ -1,4 +1,4 @@
-site_name: Abies's Notebook
+site_name: 焦糖七七の笔记
 repo_url: https://github.com/Abiesjqq/Abies_Notebook
 repo_name: Abies_Notebook
 theme:
@@ -65,7 +65,7 @@ hooks:
 nav:
   - Home:
       - Homepage: index.md
-      - Notebook介绍: 介绍/Notebook介绍.md
+      - 笔记介绍: 介绍/Notebook介绍.md
       - 通知公告:
           - 通知公告: notices/index.md
   - 碎碎念:

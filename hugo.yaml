@@ -54,12 +54,17 @@ menu:
   - name: Home
     pageRef: /docs/
     weight: 1
+  - name: 笔记
+    identifier: notes
+    weight: 2
   - name: 碎碎念
     pageRef: /docs/自学记录/1_index/
-    weight: 2
+    parent: notes
+    weight: 1
   - name: Noflower的笔记
     pageRef: /docs/NoflowersNotes/Noflower_index/
-    weight: 3
+    parent: notes
+    weight: 2
   - name: 论文阅读
     pageRef: /docs/论文阅读/4D生成/L4GM/L4GM/
     weight: 4

@@ -1,0 +1,38 @@
+{{- $cover := .Params.cover -}}
+{{- $src := "" -}}
+{{- $alt := .Title -}}
+{{- $caption := "" -}}
+{{- $position := "center" -}}
+{{- $accent := "" -}}
+
+{{- with .Params.coverImage -}}
+  {{- $src = . -}}
+{{- end -}}
+{{- with .Params.image -}}
+  {{- if not $src }}{{ $src = . }}{{ end -}}
+{{- end -}}
+{{- with .Params.accent -}}
+  {{- $accent = . -}}
+{{- end -}}
+
+{{- if $cover -}}
+  {{- if reflect.IsMap $cover -}}
+    {{- with (or $cover.src $cover.image $cover.url) -}}{{ $src = . }}{{- end -}}
+    {{- with $cover.alt -}}{{ $alt = . }}{{- end -}}
+    {{- with $cover.caption -}}{{ $caption = . }}{{- end -}}
+    {{- with $cover.position -}}{{ $position = . }}{{- end -}}
+    {{- with $cover.accent -}}{{ $accent = . }}{{- end -}}
+  {{- else -}}
+    {{- $src = $cover -}}
+  {{- end -}}
+{{- end -}}
+
+{{- if $src -}}
+  <div class="noflower-page-cover-backdrop" aria-hidden="true" style="background-image: url('{{ $src | safeURL }}');"></div>
+  <figure class="noflower-page-cover" {{ with $accent }}data-cover-accent="{{ . }}"{{ end }}>
+    <img src="{{ $src | safeURL }}" alt="{{ $alt }}" loading="eager" decoding="async" style="object-position: {{ $position | safeCSS }};">
+    {{- with $caption -}}
+      <figcaption>{{ . | markdownify }}</figcaption>
+    {{- end -}}
+  </figure>
+{{- end -}}

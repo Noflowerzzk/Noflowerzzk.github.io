@@ -1,13 +1,15 @@
 ---
 hide:
   - toc
+cover:
+  image: /docs/images/flower-dark.jpg
+  alt: Welcome to Abies's Notebook
+  position: center 58%
 ---
 
 # Welcome to Abies's Notebook ~
 
 <div class="grid cards" markdown>
-
-![示例](images/flower-dark.jpg){.img1}
 
 -   __Bulletin Board__
 

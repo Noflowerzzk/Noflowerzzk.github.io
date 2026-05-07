@@ -9,6 +9,9 @@
   {{- $top := index . 0 -}}
   {{- with $top.title -}}
     {{- $active = eq (or (T $item.Identifier) $item.Name) . -}}
+    {{- if and (not $active) (eq $item.Identifier "notes") (in (slice "碎碎念" "Noflower的笔记") .) -}}
+      {{- $active = true -}}
+    {{- end -}}
   {{- end -}}
 {{- end -}}
 {{- if and (not $active) $link -}}

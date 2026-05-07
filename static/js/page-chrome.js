@@ -5,6 +5,143 @@
     document.documentElement.classList.toggle("noflower-scrolled", window.scrollY > 12);
   }
 
+  function parseColor(value) {
+    if (!value) return null;
+    var color = String(value).trim();
+    var hex = color.match(/^#?([0-9a-f]{3}|[0-9a-f]{6})$/i);
+    if (hex) {
+      var raw = hex[1];
+      if (raw.length === 3) {
+        raw = raw.replace(/(.)/g, "$1$1");
+      }
+      return [
+        parseInt(raw.slice(0, 2), 16),
+        parseInt(raw.slice(2, 4), 16),
+        parseInt(raw.slice(4, 6), 16),
+      ];
+    }
+
+    var rgb = color.match(/rgba?\(\s*([\d.]+)[,\s]+([\d.]+)[,\s]+([\d.]+)/i);
+    if (rgb) {
+      return [Number(rgb[1]), Number(rgb[2]), Number(rgb[3])].map(function (part) {
+        return Math.max(0, Math.min(255, Math.round(part)));
+      });
+    }
+
+    var spaced = color.match(/^(\d{1,3})\s+(\d{1,3})\s+(\d{1,3})$/);
+    if (spaced) {
+      return [Number(spaced[1]), Number(spaced[2]), Number(spaced[3])].map(function (part) {
+        return Math.max(0, Math.min(255, Math.round(part)));
+      });
+    }
+
+    return null;
+  }
+
+  function setAccentColor(rgb) {
+    if (!rgb) return;
+    document.documentElement.style.setProperty("--noflower-accent-rgb", rgb.join(" "));
+    document.documentElement.dataset.noflowerAccentSource = "cover";
+  }
+
+  function extractImageAccent(img) {
+    var canvas = document.createElement("canvas");
+    var size = 48;
+    canvas.width = size;
+    canvas.height = size;
+    var ctx = canvas.getContext("2d", { willReadFrequently: true });
+    if (!ctx) return null;
+
+    ctx.drawImage(img, 0, 0, size, size);
+    var data = ctx.getImageData(0, 0, size, size).data;
+    var r = 0;
+    var g = 0;
+    var b = 0;
+    var total = 0;
+
+    for (var i = 0; i < data.length; i += 16) {
+      var alpha = data[i + 3];
+      if (alpha < 160) continue;
+
+      var red = data[i];
+      var green = data[i + 1];
+      var blue = data[i + 2];
+      var max = Math.max(red, green, blue);
+      var min = Math.min(red, green, blue);
+      var lightness = (max + min) / 2;
+      var saturation = max === min ? 0 : (max - min) / (255 - Math.abs(2 * lightness - 255));
+
+      if (lightness < 28 || lightness > 235 || saturation < 0.12) continue;
+
+      var weight = 1 + saturation * 3 + Math.abs(lightness - 128) / 255;
+      r += red * weight;
+      g += green * weight;
+      b += blue * weight;
+      total += weight;
+    }
+
+    if (!total) return null;
+
+    return [
+      Math.round(r / total),
+      Math.round(g / total),
+      Math.round(b / total),
+    ];
+  }
+
+  function initCoverAccent() {
+    var cover = document.querySelector(".noflower-page-cover");
+    if (!cover) return;
+
+    var manual = parseColor(cover.getAttribute("data-cover-accent"));
+    if (manual) {
+      setAccentColor(manual);
+      return;
+    }
+
+    var img = cover.querySelector("img");
+    if (!img) return;
+
+    function applyExtractedAccent() {
+      try {
+        setAccentColor(extractImageAccent(img));
+      } catch (error) {
+        // Cross-origin images can taint canvas; in that case keep the section color.
+      }
+    }
+
+    if (img.complete && img.naturalWidth > 0) {
+      applyExtractedAccent();
+    } else {
+      img.addEventListener("load", applyExtractedAccent, { once: true });
+    }
+  }
+
+  function initCoverBackdropScroll() {
+    var backdrop = document.querySelector(".noflower-page-cover-backdrop");
+    var tickingCover = false;
+
+    function updateCoverBackdrop() {
+      tickingCover = false;
+      var y = Math.min(window.scrollY * 0.28, 220);
+      document.documentElement.style.setProperty("--noflower-page-bg-y", y.toFixed(1) + "px");
+      if (backdrop) {
+        backdrop.style.setProperty("--noflower-cover-backdrop-y", y.toFixed(1) + "px");
+      }
+    }
+
+    function requestCoverUpdate() {
+      if (!tickingCover) {
+        tickingCover = true;
+        window.requestAnimationFrame(updateCoverBackdrop);
+      }
+    }
+
+    window.addEventListener("scroll", requestCoverUpdate, { passive: true });
+    window.addEventListener("resize", requestCoverUpdate);
+    updateCoverBackdrop();
+  }
+
   function initToc() {
     var toc = document.querySelector(".hextra-toc");
     if (!toc) return;
@@ -130,6 +267,8 @@
 
   document.addEventListener("DOMContentLoaded", function () {
     updateNavbarState();
+    initCoverAccent();
+    initCoverBackdropScroll();
     initToc();
   });
 })();

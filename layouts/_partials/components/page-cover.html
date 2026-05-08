@@ -28,9 +28,9 @@
 {{- end -}}
 
 {{- if $src -}}
-  <div class="noflower-page-cover-backdrop" aria-hidden="true" style="background-image: url('{{ $src | safeURL }}');"></div>
   <figure class="noflower-page-cover" {{ with $accent }}data-cover-accent="{{ . }}"{{ end }}>
-    <img src="{{ $src | safeURL }}" alt="{{ $alt }}" loading="eager" decoding="async" style="object-position: {{ $position | safeCSS }};">
+    <img class="noflower-page-cover__image" src="{{ $src | safeURL }}" alt="{{ $alt }}" loading="eager" decoding="async" style="object-position: {{ $position | safeCSS }};">
+    <img class="noflower-page-cover__blur" src="{{ $src | safeURL }}" alt="" aria-hidden="true" loading="eager" decoding="async" style="object-position: {{ $position | safeCSS }};">
     {{- with $caption -}}
       <figcaption>{{ . | markdownify }}</figcaption>
     {{- end -}}

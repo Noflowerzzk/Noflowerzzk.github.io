@@ -65,7 +65,7 @@ menu:
     pageRef: /docs/NoflowersNotes/Noflower_index/
     parent: notes
     weight: 2
-  - name: 论文阅读
+  - name: 科研
     pageRef: /docs/论文阅读/4D生成/L4GM/L4GM/
     weight: 4
   - name: 妙妙屋

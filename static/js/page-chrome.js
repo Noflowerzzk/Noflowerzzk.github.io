@@ -1,8 +1,35 @@
 (function () {
   var ticking = false;
+  var navbarTicking = false;
 
   function updateNavbarState() {
-    document.documentElement.classList.toggle("noflower-scrolled", window.scrollY > 12);
+    var currentScrollY = window.scrollY || 0;
+    var isScrolled = currentScrollY > 20;
+    var navbar = document.querySelector(".hextra-nav-container");
+
+    document.documentElement.classList.toggle("noflower-scrolled", isScrolled);
+    document.documentElement.classList.remove("noflower-nav-hidden");
+
+    if (navbar) {
+      navbar.classList.toggle("not-top", isScrolled);
+      navbar.dataset.show = "true";
+    }
+  }
+
+  function initNavbar() {
+    function requestNavbarUpdate() {
+      if (!navbarTicking) {
+        navbarTicking = true;
+        window.requestAnimationFrame(function () {
+          navbarTicking = false;
+          updateNavbarState();
+        });
+      }
+    }
+
+    window.addEventListener("scroll", requestNavbarUpdate, { passive: true });
+    window.addEventListener("resize", requestNavbarUpdate);
+    updateNavbarState();
   }
 
   function parseColor(value) {
@@ -118,15 +145,15 @@
   }
 
   function initCoverBackdropScroll() {
-    var backdrop = document.querySelector(".noflower-page-cover-backdrop");
+    var cover = document.querySelector(".noflower-page-cover");
+    var blur = document.querySelector(".noflower-page-cover__blur");
     var tickingCover = false;
+    var hideAt = Math.max(window.innerHeight / 3, 220);
 
     function updateCoverBackdrop() {
       tickingCover = false;
-      var y = Math.min(window.scrollY * 0.28, 220);
-      document.documentElement.style.setProperty("--noflower-page-bg-y", y.toFixed(1) + "px");
-      if (backdrop) {
-        backdrop.style.setProperty("--noflower-cover-backdrop-y", y.toFixed(1) + "px");
+      if (cover && blur) {
+        cover.classList.toggle("noflower-cover-blur-hidden", window.scrollY >= hideAt);
       }
     }
 
@@ -138,7 +165,10 @@
     }
 
     window.addEventListener("scroll", requestCoverUpdate, { passive: true });
-    window.addEventListener("resize", requestCoverUpdate);
+    window.addEventListener("resize", function () {
+      hideAt = Math.max(window.innerHeight / 3, 220);
+      requestCoverUpdate();
+    });
     updateCoverBackdrop();
   }
 
@@ -238,7 +268,6 @@
 
     function updateTocState() {
       ticking = false;
-      updateNavbarState();
 
       var marker = 120;
       var active = entries[0];
@@ -266,7 +295,7 @@
   }
 
   document.addEventListener("DOMContentLoaded", function () {
-    updateNavbarState();
+    initNavbar();
     initCoverAccent();
     initCoverBackdropScroll();
     initToc();

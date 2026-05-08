@@ -336,7 +336,7 @@ nav:
 #           - Gourand Shading: AbiesNotes/Tinyrenderer/Gourand.md
 #           - Camera: AbiesNotes/Tinyrenderer/camera.md
 #           - Shader: AbiesNotes/Tinyrenderer/shader.md
-  - 论文阅读:
+  - 科研:
       - 4D Generation:
           - L4GM: 论文阅读/4D生成/L4GM/L4GM.md
           - SV4D: 论文阅读/4D生成/SV4D/SV4D.md
@@ -350,6 +350,8 @@ nav:
       - World Model:
           - 简介: 论文阅读/WorldModel/简介/简介.md
           - Real Time World Model: 论文阅读/WorldModel/RealTimeWorldModel/RealTimeWorldModel.md
+          - Causvid: 论文阅读/WorldModel/Causvid/Causvid.md
+          - 相关数据集: 论文阅读/WorldModel/Dataset_research/Dataset_research.md
   - 妙妙屋:
       - 跳转与介绍: snippet/links.md
 extra:

@@ -74,6 +74,10 @@ html[data-noflower-section="论文阅读"] {
   --noflower-accent-rgb: 168 121 255;
 }
 
+html[data-noflower-section="科研"] {
+  --noflower-accent-rgb: 168 121 255;
+}
+
 html[data-noflower-section="妙妙屋"] {
   --noflower-accent-rgb: 220 151 57;
 }
@@ -93,14 +97,9 @@ body::before {
   right: 0;
   left: 0;
   z-index: 0;
-  height: min(64vh, 34rem);
+  height: 100vh;
   pointer-events: none;
-  background-image:
-    radial-gradient(circle at 50% -8rem, rgb(var(--noflower-accent-rgb) / 0.16), transparent 25rem),
-    linear-gradient(180deg, rgb(var(--noflower-accent-rgb) / 0.075), transparent 18rem);
-  transform: translateY(var(--noflower-page-bg-y, 0px));
-  transform-origin: top center;
-  will-change: transform;
+  background-image: linear-gradient(180deg, rgb(var(--noflower-accent-rgb) / 0.25), transparent 72%);
 }
 
 .dark body {
@@ -108,13 +107,7 @@ body::before {
 }
 
 .dark body::before {
-  background-image:
-    radial-gradient(circle at 50% -8rem, rgb(var(--noflower-accent-rgb) / 0.18), transparent 25rem),
-    linear-gradient(180deg, rgb(var(--noflower-accent-rgb) / 0.095), transparent 18rem);
-}
-
-body:has(.noflower-page-cover)::before {
-  content: none;
+  background-image: linear-gradient(180deg, rgb(var(--noflower-accent-rgb) / 0.22), transparent 72%);
 }
 
 .content,
@@ -154,6 +147,60 @@ footer {
   font-feature-settings: "liga" 0, "calt" 0;
 }
 
+.content :where(p, li, td, th, blockquote, figcaption):not(.not-prose *) > a:not(:has(img)) {
+  display: inline;
+  margin: 0 -0.04em;
+  padding: 0 0.04em;
+  border-radius: 0.18em;
+  border-bottom: 1px solid rgb(107 114 128 / 0.34);
+  background-image: linear-gradient(
+    180deg,
+    rgb(var(--noflower-accent-rgb) / 0),
+    rgb(var(--noflower-accent-rgb) / 0.12)
+  );
+  background-repeat: no-repeat;
+  background-size: 0 100%;
+  color: rgb(75 85 99) !important;
+  font-weight: 600;
+  text-decoration: none !important;
+  transition:
+    color 160ms ease,
+    border-color 160ms ease,
+    background-size 180ms ease;
+}
+
+.content :where(p, li, td, th, blockquote, figcaption):not(.not-prose *) > a:not(:has(img)):hover {
+  border-bottom-color: rgb(var(--noflower-accent-rgb) / 0.58);
+  background-size: 100% 100%;
+  color: var(--noflower-accent) !important;
+}
+
+.content :where(p, li, td, th, blockquote, figcaption):not(.not-prose *) > a[href^="http"]:not(:has(img))::after,
+.content :where(p, li, td, th, blockquote, figcaption):not(.not-prose *) > a[href^="//"]:not(:has(img))::after {
+  content: "\2197";
+  margin-left: 0.16em;
+  font-family: var(--noflower-ui-font);
+  font-size: 0.74em;
+  font-weight: 600;
+  opacity: 0.64;
+  vertical-align: 0.08em;
+}
+
+.dark .content :where(p, li, td, th, blockquote, figcaption):not(.not-prose *) > a:not(:has(img)) {
+  border-bottom-color: rgb(148 163 184 / 0.58);
+  background-image: linear-gradient(
+    180deg,
+    rgb(var(--noflower-accent-rgb) / 0),
+    rgb(var(--noflower-accent-rgb) / 0.16)
+  );
+  color: rgb(186 198 214) !important;
+}
+
+.dark .content :where(p, li, td, th, blockquote, figcaption):not(.not-prose *) > a:not(:has(img)):hover {
+  border-bottom-color: rgb(var(--noflower-accent-rgb) / 0.68);
+  color: var(--noflower-accent) !important;
+}
+
 .hextra-tabs-toggle[data-state="selected"] {
   color: var(--hx-color-primary-800) !important;
   border-bottom-color: var(--hx-color-primary-800) !important;
@@ -164,28 +211,59 @@ footer {
   border-bottom-color: var(--hx-color-primary-600) !important;
 }
 
+.hextra-nav-container {
+  top: 0 !important;
+  transition: background-color 180ms ease, box-shadow 180ms ease;
+}
+
+.hextra-nav-container > nav {
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
 .hextra-nav-container-blur {
-  backdrop-filter: saturate(180%) blur(14px);
-  transition: background-color 180ms ease, box-shadow 180ms ease, backdrop-filter 180ms ease;
+  display: block;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+  transition:
+    background-color 180ms ease,
+    box-shadow 180ms ease,
+    -webkit-backdrop-filter 180ms ease,
+    backdrop-filter 180ms ease;
 }
 
 html.noflower-scrolled .hextra-nav-container-blur {
-  background-color: rgb(255 255 255 / 0.76) !important;
+  background-color: rgb(255 255 255 / 0.88) !important;
   box-shadow:
-    0 1px 0 rgb(var(--noflower-accent-rgb) / 0.12),
-    0 10px 28px rgb(15 23 42 / 0.055) !important;
+    0 1px 0 rgb(var(--noflower-accent-rgb) / 0.1),
+    0 8px 22px rgb(15 23 42 / 0.045) !important;
+  -webkit-backdrop-filter: saturate(170%) blur(10px);
+  backdrop-filter: saturate(170%) blur(10px);
 }
 
 .dark html.noflower-scrolled .hextra-nav-container-blur,
 html.dark.noflower-scrolled .hextra-nav-container-blur {
-  background-color: rgb(17 17 17 / 0.72) !important;
+  background-color: rgb(17 17 17 / 0.86) !important;
   box-shadow:
     0 1px 0 rgb(var(--noflower-accent-rgb) / 0.16),
-    0 10px 28px rgb(0 0 0 / 0.2) !important;
+    0 8px 22px rgb(0 0 0 / 0.18) !important;
+  -webkit-backdrop-filter: saturate(170%) blur(10px);
+  backdrop-filter: saturate(170%) blur(10px);
 }
 
 .hextra-nav-container .hx\:font-medium {
   color: var(--noflower-accent);
+}
+
+.hextra-nav-container :where(a, button) {
+  font-weight: 700;
+}
+
+.hextra-nav-container :where(.hextra-search-wrapper, .hextra-search-wrapper *) {
+  font-weight: inherit;
 }
 
 .hextra-sidebar-active-item {
@@ -343,66 +421,43 @@ html.dark.noflower-scrolled .hextra-nav-container-blur {
   position: relative;
   display: grid;
   margin: 0.35rem 0 1.65rem;
-  overflow: hidden;
-  border-radius: 0.85rem;
+  overflow: visible;
   background: transparent;
+}
+
+.noflower-page-cover__image {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 65ch;
+  border-radius: 1rem;
+  object-fit: contain;
   box-shadow:
     0 1px 0 rgb(var(--noflower-accent-rgb) / 0.08),
     0 18px 45px rgb(15 23 42 / 0.08);
 }
 
-.noflower-page-cover-backdrop {
+.noflower-page-cover__blur {
   position: absolute;
-  top: 0;
+  top: 1rem;
   right: 0;
-  left: 0;
   z-index: 0;
-  height: min(70vh, 36rem);
-  pointer-events: none;
-  background-position: center;
-  background-size: cover;
-  opacity: 0.62;
-  transform: translateY(var(--noflower-cover-backdrop-y, 0px)) scale(1.04);
-  transform-origin: top center;
-  filter: blur(20px) saturate(1.12);
-  will-change: transform;
-}
-
-.noflower-page-cover-backdrop::before,
-.noflower-page-cover-backdrop::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-}
-
-.noflower-page-cover-backdrop::before {
-  background:
-    radial-gradient(circle at 50% 5rem, rgb(var(--noflower-accent-rgb) / 0.2), transparent 28rem),
-    linear-gradient(180deg, rgb(255 255 255 / 0.08), rgb(255 255 255 / 0.82) 58%, rgb(255 255 255));
-}
-
-.noflower-page-cover-backdrop::after {
-  background: linear-gradient(90deg, rgb(255 255 255 / 0.72), transparent 28%, transparent 72%, rgb(255 255 255 / 0.72));
-}
-
-.noflower-page-cover::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background:
-    linear-gradient(180deg, transparent 55%, rgb(0 0 0 / 0.18)),
-    linear-gradient(90deg, rgb(var(--noflower-accent-rgb) / 0.14), transparent 45%);
-  mix-blend-mode: multiply;
-}
-
-.noflower-page-cover img {
   display: block;
   width: 100%;
-  min-height: 100%;
-  aspect-ratio: 21 / 8;
-  max-height: 20rem;
-  object-fit: cover;
+  height: 100%;
+  max-width: 65ch;
+  border-radius: 1.5rem;
+  object-fit: contain;
+  opacity: 0.6;
+  filter: blur(24px) saturate(1.08);
+  transition: opacity 300ms ease;
+  will-change: opacity;
+}
+
+.noflower-cover-blur-hidden .noflower-page-cover__blur {
+  opacity: 0;
 }
 
 .noflower-page-cover figcaption {
@@ -421,31 +476,12 @@ html.dark.noflower-scrolled .hextra-nav-container-blur {
 
 .dark .noflower-page-cover {
   background: transparent;
+}
+
+.dark .noflower-page-cover__image {
   box-shadow:
     0 1px 0 rgb(var(--noflower-accent-rgb) / 0.12),
     0 18px 45px rgb(0 0 0 / 0.28);
-}
-
-.dark .noflower-page-cover-backdrop {
-  opacity: 0.5;
-  filter: blur(22px) saturate(1.08) brightness(0.8);
-}
-
-.dark .noflower-page-cover-backdrop::before {
-  background:
-    radial-gradient(circle at 50% 5rem, rgb(var(--noflower-accent-rgb) / 0.22), transparent 28rem),
-    linear-gradient(180deg, rgb(17 17 17 / 0.1), rgb(17 17 17 / 0.72) 58%, rgb(17 17 17));
-}
-
-.dark .noflower-page-cover-backdrop::after {
-  background: linear-gradient(90deg, rgb(17 17 17 / 0.78), transparent 30%, transparent 70%, rgb(17 17 17 / 0.78));
-}
-
-.dark .noflower-page-cover::after {
-  background:
-    linear-gradient(180deg, transparent 52%, rgb(0 0 0 / 0.28)),
-    linear-gradient(90deg, rgb(var(--noflower-accent-rgb) / 0.18), transparent 45%);
-  mix-blend-mode: normal;
 }
 
 @media (max-width: 640px) {
@@ -455,13 +491,8 @@ html.dark.noflower-scrolled .hextra-nav-container-blur {
     border-radius: 0.65rem;
   }
 
-  .noflower-page-cover-backdrop {
-    height: 24rem;
-    transform: translateY(var(--noflower-cover-backdrop-y, 0px)) scale(1.08);
-  }
-
-  .noflower-page-cover img {
-    aspect-ratio: 16 / 9;
+  .noflower-page-cover__image,
+  .noflower-page-cover__blur {
     max-height: none;
   }
 }
@@ -1011,10 +1042,8 @@ html.noflower-js .noflower-toc-active-rail {
 }
 
 .hextra-toc .noflower-toc-footer {
-  background:
-    linear-gradient(180deg, rgb(255 255 255 / 0), rgb(255 255 255 / 0.9) 1rem, rgb(255 255 255 / 0.96)),
-    linear-gradient(180deg, rgb(var(--noflower-accent-rgb) / 0.055), rgb(var(--noflower-accent-rgb) / 0.035)) !important;
-  box-shadow: 0 -14px 18px rgb(var(--noflower-accent-rgb) / 0.08) !important;
+  background: transparent !important;
+  box-shadow: none !important;
 }
 
 body:has(.noflower-page-cover) .hextra-toc .hextra-scrollbar,
@@ -1024,23 +1053,11 @@ body:has(.noflower-page-cover) .hextra-toc .noflower-toc-footer {
 }
 
 .dark .hextra-toc .noflower-toc-footer {
-  background:
-    linear-gradient(180deg, rgb(17 17 17 / 0), rgb(17 17 17 / 0.9) 1rem, rgb(17 17 17 / 0.96)),
-    linear-gradient(180deg, rgb(var(--noflower-accent-rgb) / 0.09), rgb(var(--noflower-accent-rgb) / 0.055)) !important;
-  box-shadow: 0 -14px 18px rgb(var(--noflower-accent-rgb) / 0.12) !important;
+  background: transparent !important;
+  box-shadow: none !important;
 }
 
 .hextra-toc .noflower-toc-footer::before {
-  content: "";
-  position: absolute;
-  top: -1px;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgb(var(--noflower-accent-rgb) / 0.28), transparent);
-}
-
-body:has(.noflower-page-cover) .hextra-toc .noflower-toc-footer::before {
   content: none;
 }
 

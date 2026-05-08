@@ -1025,7 +1025,7 @@
       ]
     },
     {
-      "title": "论文阅读",
+      "title": "科研",
       "href": "",
       "children": [
         {
@@ -1135,11 +1135,29 @@
               "page_refs": [
                 "/docs/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/WorldModel/RealTimeWorldModel/RealTimeWorldModel/"
               ]
+            },
+            {
+              "title": "Causvid",
+              "href": "/docs/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/WorldModel/Causvid/Causvid/",
+              "children": [],
+              "page_refs": [
+                "/docs/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/WorldModel/Causvid/Causvid/"
+              ]
+            },
+            {
+              "title": "相关数据集",
+              "href": "/docs/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/WorldModel/Dataset_research/Dataset_research/",
+              "children": [],
+              "page_refs": [
+                "/docs/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/WorldModel/Dataset_research/Dataset_research/"
+              ]
             }
           ],
           "page_refs": [
             "/docs/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/WorldModel/%E7%AE%80%E4%BB%8B/%E7%AE%80%E4%BB%8B/",
-            "/docs/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/WorldModel/RealTimeWorldModel/RealTimeWorldModel/"
+            "/docs/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/WorldModel/RealTimeWorldModel/RealTimeWorldModel/",
+            "/docs/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/WorldModel/Causvid/Causvid/",
+            "/docs/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/WorldModel/Dataset_research/Dataset_research/"
           ]
         }
       ],
@@ -1153,7 +1171,9 @@
         "/docs/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/Diffusion/Unleashing%20the%20Power%20of%20One-Step%20Diffusion%20based%20Image%20Super-Resolution/Unleashing%20the%20Power%20of%20One-Step%20Diffusion%20based%20Image%20Super-Resolution/",
         "/docs/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/Diffusion/DOVE%2C%20Efficient%20One-Step%20Diffusion%20Model%20for%20Real-World%20Video%20Super-Resolution/DOVE%2C%20Efficient%20One-Step%20Diffusion%20Model%20for%20Real-World%20Video%20Super-Resolution/",
         "/docs/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/WorldModel/%E7%AE%80%E4%BB%8B/%E7%AE%80%E4%BB%8B/",
-        "/docs/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/WorldModel/RealTimeWorldModel/RealTimeWorldModel/"
+        "/docs/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/WorldModel/RealTimeWorldModel/RealTimeWorldModel/",
+        "/docs/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/WorldModel/Causvid/Causvid/",
+        "/docs/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/WorldModel/Dataset_research/Dataset_research/"
       ]
     },
     {
@@ -1538,6 +1558,14 @@
     {
       "title": "Real Time World Model",
       "href": "/docs/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/WorldModel/RealTimeWorldModel/RealTimeWorldModel/"
+    },
+    {
+      "title": "Causvid",
+      "href": "/docs/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/WorldModel/Causvid/Causvid/"
+    },
+    {
+      "title": "相关数据集",
+      "href": "/docs/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/WorldModel/Dataset_research/Dataset_research/"
     },
     {
       "title": "跳转与介绍",

@@ -87,13 +87,16 @@ The following are equivalent:
 
 here $\displaystyle N_i = \sum_{t = 0}^\infty \mathbf{1}[X_t = i]$
 
-If $i$ is equivalent, and $P^t(j, i) \geq \alpha > 0$, we say $j$ is also recurrent.
-
 !!! remarks "Proof"
 
-    Firstly $\mathbb{P}_i[T_j < \infty] = 1$, and $\mathbb{P}_j[T_j^+ < \infty] \geq \mathbb{P}_j[T_i < \infty] \cdot \mathbb{P}[T_j < \infty] = 1$
+    By strong MC property, $\left(\mathbb{P}[T_i^+ < \infty]\right)^k = 1$, i.e. the system will return $k$ times definitely. So $\mathbb{P}_i[N_i = \infty] = 1$.  
+    So obviously $\mathbb{E}[N_i] = \infty$
 
-    (??????)
+    If $\mathbb{E}[N_i] = \infty$, assume $i$ is transient, i.e. $\mathbb{P}[T_i^+ < \infty] = \alpha < 1$, then $N_i - 1 \sim \operatorname{Ge}(1 - \alpha)$, $\mathbb{E}[N_i - 1] = \dfrac{\alpha}{1 - \alpha} < \infty$!
+
+If $i$ is recurrent, and $P^t(j, i) \geq \alpha > 0$, we say $j$ is also recurrent.
+
+
 
 ### Recurrent in the Integer Chain
 

@@ -94,7 +94,11 @@
         {{- $s.Set "activeBranch" $branch -}}
       {{- end -}}
     {{- end -}}
-    {{- template "sidebar-tree-mkdocs" (dict "nodes" (($s.Get "activeBranch").children) "level" 0 "pageURL" $pageURLLower) -}}
+    {{- if (.toc | default false) -}}
+      {{- template "sidebar-tree-mkdocs" (dict "nodes" $mkdocsBranches "level" 0 "pageURL" $pageURLLower) -}}
+    {{- else -}}
+      {{- template "sidebar-tree-mkdocs" (dict "nodes" (($s.Get "activeBranch").children) "level" 0 "pageURL" $pageURLLower) -}}
+    {{- end -}}
   {{- else -}}
     {{ template "sidebar-tree-default" (dict "context" .context "level" 0 "page" .page "pageURL" .pageURL "toc" (.toc | default false)) }}
   {{- end -}}

@@ -9,6 +9,10 @@ We call $Y$ is $\mathcal{F}_t$-measurable: If we know $X_1, \ldots, X_t$, then w
 
 A random variable $\tau$ is called a **stopping-time** if for all $n \in \mathbb{Z}$, $[\tau = n]$ is $\mathcal{F}_n$-measurable. (The probability of $[\tau = n]$ can be decide only by the information before $n$)
 
+!!! examples "Example"
+
+    $\displaystyle t_A = \min\{t \geq 0|X_t \in A\}$ is a stopping time
+
 
 Given a sequence $X_0, \ldots$ on a same probability space, if for all **stopping-time** $\tau < \infty$ (it can be a random variable) s.t.
 
@@ -16,13 +20,10 @@ $$
 \mathbb{P}[X_{\tau + 1} = x_1, \ldots, X_{\tau + k} = x_k|X_\tau = x_0] = \mathbb{P}[X_1 = x_1, \ldots, X_k = x_k | X_0 = x_0] 
 $$
 
-holds on a probability of $1$, then we call the random process has **strong probability**
+holds on a probability of $1$, then we call the random process has **strong Markov property**
 
 > Markov property is equivalent to Strong Markov property in discrete MC
 
-!!! examples "Example"
-
-    $\displaystyle t_A = \min\{t \geq 0|X_t \in A\}$ is a stopping time
 
 Let $C_n = \{(X_0, \ldots, X_n) = (y_0, \ldots, y_{n - 1}, x_0)\}$, then
 
@@ -46,7 +47,7 @@ And here **irreducible**: have a finite path from $i$ to $j$
 We define $T_A = \min\{t \geq 0 | X_t \in A\}$. If $A = \{i\}$, we say $T_i = \min\{t \geq 0 | X_t = i\}$.  
 We define $\mathbb{P}_i[A] = \mathbb{P}[A|X_0 = i]$ and $\mathbb{E}_i[X] = \mathbb{E}[X|X_0 = i]$  
 
-$h_A(i) = \mathbb{P}_i[T_A < \infty]$，$e_A(i) = \mathbb{E}_i[T_A]$
+$h_A(i) = \mathbb{P}_i[T_A < \infty]$ (Hitting Probability)，$e_A(i) = \mathbb{E}_i[T_A]$ (Expected Hitting Time)
 
 !!! normal-comment "Another expression of Markov property"
 
@@ -106,7 +107,36 @@ We can prove that when $p \geq \dfrac{1}{2}$, the chain is transient; when $p < 
 
 In the recurrent cases, if $\mathbb{E}[T^+_{0}] = \infty$, then we call it **Null recurrent**; if $\mathbb{E}[T^+_{0}] < \infty$, then we call it **Positive recurrent**
 
-When 
+In the integer chain, we have
 
+$$
+\begin{aligned}
+    &h_0(0) = 1 \\
+    & h_0(i) = ph_0(i + 1) + (1 - p)h_0(i - 1)
+\end{aligned}
+$$
 
+So $h_0(i) = 1 - C_2 + C_2\left(\dfrac{1 - p}{p}\right)^i, \forall C_2 \in \mathbb{R}$
 
+!!! examples "Random walk on $\mathbb{Z}^d$"
+
+    We have 
+
+    $$
+    \mathbb{P}_{\boldsymbol{0}}[X_{2m} = \boldsymbol{0}] = \left(\frac{\binom{2m}{m}}{2^m}\right)^d \approx (\pi m)^{-d/2}
+    $$
+
+    So the system is recurrent iff. $\displaystyle\mathbb{E}[N_i] = \sum_{i = 1}^\infty (\pi m)^{-d/2} = \infty$ iff. $d \leq 2$
+
+### Positive recurrent and Null recurrent
+
+Recurrent only ensures the state must return in finite time $\mathbb{P}_i[T_i < \infty] = 1$, but the average time to return is not bounded! So we introduce positive recurrent and null recurrent.
+
+For a recurrent state $i$, if $\mathbb{E}_i[T_i^+] < \infty$, then we call the state **Positive recurrent**, and if $\mathbb{E}_i[T_i^+] = \infty$, then we call it **Null recurrent**.
+
+### The Fundamental Theorem of Infinite MC
+
+If a countable state MC satisfies [IR], [AP] and positive recurrent, then:
+1. the system has a unique stationary distribution $\pi$, and for all state $i$, $\pi(i) > 0$
+2. $\pi(i) = \dfrac{1}{\mathbb{E}_i[T_i^+]}$
+3. $\displaystyle \lim_{t \to \infty}P^t(j, i) = \pi(i)$

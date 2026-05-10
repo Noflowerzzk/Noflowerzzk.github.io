@@ -45,3 +45,14 @@ Chap Code
 | `OUT`  | `TRAP x21`   | Write one character (in `R0[7:0]`) to console.                                |
 | `GETC` | `TRAP x20`   | Read one character from keyboard. Character stored in `R0[7:0]`.              |
 | `PUTS` | `TRAP x22`   | Write null-terminated string to console. Address of string is in R0.        |
+
+
+!!! examples "Some Examples"
+
+     ![alt text](image.png)
+
+     ![alt text](image-1.png)
+
+     ![alt text](image-2.png)
+
+     ![alt text](image-3.png)

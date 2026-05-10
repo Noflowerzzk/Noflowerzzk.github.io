@@ -70,6 +70,10 @@ html[data-noflower-section="Noflower的笔记"] {
   --noflower-accent-rgb: 88 157 247;
 }
 
+html[data-noflower-section="Abies的笔记"] {
+  --noflower-accent-rgb: 88 157 247;
+}
+
 html[data-noflower-section="论文阅读"] {
   --noflower-accent-rgb: 168 121 255;
 }
@@ -857,6 +861,14 @@ html.noflower-js #content > .content.noflower-content-ready > :nth-child(n + 6) 
   z-index: 1;
 }
 
+.noflower-toc-panel {
+  overflow: hidden;
+}
+
+.noflower-toc-scroll {
+  scrollbar-gutter: stable;
+}
+
 .noflower-toc-heading-wrap {
   position: relative;
   --noflower-toc-active-top: 0px;
@@ -1042,12 +1054,6 @@ html.noflower-js .noflower-toc-active-rail {
 }
 
 .hextra-toc .noflower-toc-footer {
-  background: transparent !important;
-  box-shadow: none !important;
-}
-
-body:has(.noflower-page-cover) .hextra-toc .hextra-scrollbar,
-body:has(.noflower-page-cover) .hextra-toc .noflower-toc-footer {
   background: transparent !important;
   box-shadow: none !important;
 }

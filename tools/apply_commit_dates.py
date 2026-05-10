@@ -117,6 +117,18 @@ def commit_dates_for_path(repo: Path, source_path: str, ref: str = "HEAD") -> tu
     return created[0].strip(), updated[0].strip()
 
 
+def commit_count_for_path(repo: Path, source_path: str, ref: str = "HEAD") -> int:
+    try:
+        result = run_git(
+            ["log", "--follow", "--format=%H", ref, "--", source_path],
+            cwd=repo,
+        )
+    except subprocess.CalledProcessError as exc:
+        print(f"warning: failed to count commits for {source_path}: {exc.stderr.strip()}", file=sys.stderr)
+        return 0
+    return len([line for line in result.stdout.splitlines() if line.strip()])
+
+
 def github_login_from_noreply(email: str) -> str | None:
     match = re.search(r"(?:\d+\+)?([^@]+)@users\.noreply\.github\.com\Z", email, re.IGNORECASE)
     if not match:
@@ -287,6 +299,7 @@ def main() -> None:
     current_paths = load_repo_paths(site_root, "HEAD")
     date_cache: dict[tuple[Path, str, str], tuple[str, str] | None] = {}
     author_cache: dict[tuple[Path, str, str], list[dict]] = {}
+    commit_count_cache: dict[tuple[Path, str, str], int] = {}
     matched = 0
     changed = 0
 
@@ -294,6 +307,7 @@ def main() -> None:
         rel_path = path.relative_to(docs_root).as_posix()
         sources: list[tuple[Path, str, str]] = []
 
+        old_source = None
         if old_repo:
             old_source = next((candidate for candidate in generated_rel_to_source_candidates(rel_path) if candidate in old_paths), None)
             if old_source:
@@ -301,7 +315,17 @@ def main() -> None:
 
         current_source = next((candidate for candidate in generated_rel_to_current_source_candidates(rel_path) if candidate in current_paths), None)
         if current_source:
-            sources.append((site_root, current_source, "HEAD"))
+            current_key = (site_root, current_source, "HEAD")
+            current_commit_count = commit_count_cache.get(current_key)
+            if current_commit_count is None:
+                current_commit_count = commit_count_for_path(site_root, current_source, "HEAD")
+                commit_count_cache[current_key] = current_commit_count
+
+            # If the old notebook repository has the real history and this repo
+            # only contains the import commit, do not credit the import as an
+            # author/update. Later local edits add more commits and are included.
+            if not old_source or current_commit_count > 1:
+                sources.append((site_root, current_source, "HEAD"))
 
         if not sources:
             continue

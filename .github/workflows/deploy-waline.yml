@@ -73,7 +73,7 @@ jobs:
       - name: Initialize Waline SQLite database
         run: |
           ssh -p "${SERVER_PORT}" "${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }}" \
-            "cd '${WALINE_SERVER_PATH}' && mkdir -p data && if [ ! -f data/waline.sqlite ]; then curl -fsSL -o /tmp/waline.sqlite https://raw.githubusercontent.com/walinejs/waline/refs/heads/main/assets/waline.sqlite && sudo mv /tmp/waline.sqlite data/waline.sqlite; fi && sudo chmod 666 data/waline.sqlite"
+            "cd '${WALINE_SERVER_PATH}' && sudo docker compose down || true && mkdir -p data && if [ ! -s data/waline.sqlite ]; then curl -fsSL -o /tmp/waline.sqlite https://raw.githubusercontent.com/walinejs/waline/refs/heads/main/assets/waline.sqlite && sudo mv /tmp/waline.sqlite data/waline.sqlite; fi && sudo chmod 666 data/waline.sqlite"
 
       - name: Start Waline
         run: |

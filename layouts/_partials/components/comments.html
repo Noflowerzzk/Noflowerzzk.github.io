@@ -3,13 +3,7 @@
 {{- if $enabled -}}
   {{- $pagePath := .RelPermalink -}}
   {{- if ne $pagePath "/" -}}{{- $pagePath = strings.TrimSuffix "/" $pagePath -}}{{- end -}}
-  <section class="noflower-comments" aria-labelledby="noflower-comments-title">
-    <div class="noflower-comments__header">
-      <h2 id="noflower-comments-title">Comments</h2>
-      <span class="noflower-comments__count">
-        <span class="waline-comment-count" data-path="{{ $pagePath }}"></span>
-      </span>
-    </div>
+  <section class="noflower-comments" aria-label="Comments">
     <div id="waline" class="noflower-waline"></div>
   </section>
   <script type="module">
@@ -26,7 +20,7 @@
       path: normalizePath(window.location.pathname),
       pageview: {{ ($waline.pageview | default true) | jsonify | safeJS }},
       comment: true,
-      reaction: {{ ($waline.reaction | default true) | jsonify | safeJS }},
+      reaction: {{ cond ($waline.reaction | default true) (slice "/icons/waline-heart.svg") false | jsonify | safeJS }},
       dark: "html.dark"
     });
   </script>

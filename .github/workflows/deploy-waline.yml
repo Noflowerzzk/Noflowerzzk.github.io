@@ -52,6 +52,7 @@ jobs:
           ssh -p "${SERVER_PORT}" "${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }}" \
             "mkdir -p '${WALINE_SERVER_PATH}'"
           rsync -az --delete \
+            --exclude 'data/' \
             -e "ssh -p ${SERVER_PORT}" \
             deploy/waline/ \
             "${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }}:${WALINE_SERVER_PATH}/"

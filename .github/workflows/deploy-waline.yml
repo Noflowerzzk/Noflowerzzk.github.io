@@ -27,7 +27,7 @@ jobs:
       WALINE_JWT_TOKEN: ${{ secrets.WALINE_JWT_TOKEN }}
       WALINE_SITE_NAME: ${{ secrets.WALINE_SITE_NAME || '焦糖七七の笔记' }}
       WALINE_SITE_URL: ${{ secrets.WALINE_SITE_URL || 'https://noflowerzzk.cn' }}
-      WALINE_SECURE_DOMAINS: ${{ secrets.WALINE_SECURE_DOMAINS || 'noflowerzzk.cn,www.noflowerzzk.cn' }}
+      WALINE_SECURE_DOMAINS: ${{ secrets.WALINE_SECURE_DOMAINS || 'noflowerzzk.cn,www.noflowerzzk.cn,comments.noflowerzzk.cn' }}
       WALINE_AUTHOR_EMAIL: ${{ secrets.WALINE_AUTHOR_EMAIL }}
     steps:
       - name: Checkout

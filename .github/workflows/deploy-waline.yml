@@ -69,6 +69,11 @@ jobs:
           AUTHOR_EMAIL=${WALINE_AUTHOR_EMAIL}
           EOF
 
+      - name: Initialize Waline SQLite database
+        run: |
+          ssh -p "${SERVER_PORT}" "${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }}" \
+            "cd '${WALINE_SERVER_PATH}' && mkdir -p data && if [ ! -f data/waline.sqlite ]; then curl -fsSL -o data/waline.sqlite https://raw.githubusercontent.com/walinejs/waline/refs/heads/main/assets/waline.sqlite; fi && chmod 666 data/waline.sqlite"
+
       - name: Start Waline
         run: |
           ssh -p "${SERVER_PORT}" "${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }}" \

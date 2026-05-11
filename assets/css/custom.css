@@ -421,6 +421,70 @@ html.dark.noflower-scrolled .hextra-nav-container-blur {
   color: rgb(148 163 184);
 }
 
+.noflower-pageview-meta {
+  white-space: nowrap;
+}
+
+.waline-pageview-count:empty::before,
+.waline-comment-count:empty::before {
+  content: "0";
+}
+
+.noflower-comments {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgb(229 231 235);
+  font-family: var(--noflower-ui-font);
+}
+
+.dark .noflower-comments {
+  border-top-color: rgb(38 38 38);
+}
+
+.noflower-comments__header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.noflower-comments__header h2 {
+  margin: 0;
+  font-family: var(--noflower-heading-font);
+  font-size: 1.35rem;
+}
+
+.noflower-comments__count {
+  color: rgb(100 116 139);
+  font-size: 0.85rem;
+}
+
+.noflower-comments__count .waline-comment-count:not(:empty)::after {
+  content: " comments";
+}
+
+.dark .noflower-comments__count {
+  color: rgb(148 163 184);
+}
+
+.noflower-waline {
+  --waline-theme-color: var(--noflower-accent);
+  --waline-active-color: var(--noflower-accent);
+  --waline-border-color: rgb(229 231 235);
+  --waline-bgcolor: transparent;
+  --waline-bgcolor-light: rgb(248 250 252 / 0.72);
+  --waline-font-size: 0.95rem;
+}
+
+.dark .noflower-waline {
+  --waline-border-color: rgb(38 38 38);
+  --waline-bgcolor: transparent;
+  --waline-bgcolor-light: rgb(24 24 27 / 0.72);
+  --waline-color: rgb(229 231 235);
+  --waline-light-grey: rgb(156 163 175);
+}
+
 .noflower-page-cover {
   position: relative;
   display: grid;

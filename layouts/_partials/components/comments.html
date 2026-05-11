@@ -1,0 +1,33 @@
+{{- $waline := site.Params.comments.waline -}}
+{{- $enabled := and .IsPage ($waline.enable | default false) $waline.serverURL (ne .Params.comments false) -}}
+{{- if $enabled -}}
+  {{- $pagePath := .RelPermalink -}}
+  {{- if ne $pagePath "/" -}}{{- $pagePath = strings.TrimSuffix "/" $pagePath -}}{{- end -}}
+  <section class="noflower-comments" aria-labelledby="noflower-comments-title">
+    <div class="noflower-comments__header">
+      <h2 id="noflower-comments-title">Comments</h2>
+      <span class="noflower-comments__count">
+        <span class="waline-comment-count" data-path="{{ $pagePath }}"></span>
+      </span>
+    </div>
+    <div id="waline" class="noflower-waline"></div>
+  </section>
+  <script type="module">
+    import { init } from "https://unpkg.com/@waline/client@v3/dist/waline.js";
+
+    const normalizePath = (path) => {
+      if (!path || path === "/") return "/";
+      return path.replace(/\/$/, "");
+    };
+
+    init({
+      el: "#waline",
+      serverURL: {{ $waline.serverURL | jsonify | safeJS }},
+      path: normalizePath(window.location.pathname),
+      pageview: {{ ($waline.pageview | default true) | jsonify | safeJS }},
+      comment: true,
+      reaction: {{ ($waline.reaction | default true) | jsonify | safeJS }},
+      dark: "html.dark"
+    });
+  </script>
+{{- end -}}

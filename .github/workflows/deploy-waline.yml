@@ -1,0 +1,75 @@
+name: Deploy Waline
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy-waline
+  cancel-in-progress: true
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      SERVER_PORT: ${{ secrets.SERVER_PORT || '22' }}
+      WALINE_SERVER_PATH: ${{ secrets.WALINE_SERVER_PATH || '/home/ubuntu/Noflowerzzk_waline' }}
+      WALINE_PORT: ${{ secrets.WALINE_PORT || '8360' }}
+      WALINE_JWT_TOKEN: ${{ secrets.WALINE_JWT_TOKEN }}
+      WALINE_SITE_NAME: ${{ secrets.WALINE_SITE_NAME || '焦糖七七の笔记' }}
+      WALINE_SITE_URL: ${{ secrets.WALINE_SITE_URL || 'https://noflowerzzk.cn' }}
+      WALINE_SECURE_DOMAINS: ${{ secrets.WALINE_SECURE_DOMAINS || 'noflowerzzk.cn,www.noflowerzzk.cn' }}
+      WALINE_AUTHOR_EMAIL: ${{ secrets.WALINE_AUTHOR_EMAIL }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Validate Waline secrets
+        run: |
+          test -n "${WALINE_JWT_TOKEN}" || {
+            echo "WALINE_JWT_TOKEN secret is required"
+            exit 1
+          }
+
+      - name: Configure SSH
+        run: |
+          mkdir -p "${HOME}/.ssh"
+          printf '%s\n' "${{ secrets.SERVER_SSH_KEY }}" > "${HOME}/.ssh/id_ed25519"
+          chmod 600 "${HOME}/.ssh/id_ed25519"
+          ssh-keyscan -p "${SERVER_PORT}" -H "${{ secrets.SERVER_HOST }}" >> "${HOME}/.ssh/known_hosts"
+
+      - name: Upload Waline compose files
+        run: |
+          ssh -p "${SERVER_PORT}" "${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }}" \
+            "mkdir -p '${WALINE_SERVER_PATH}'"
+          rsync -az --delete \
+            -e "ssh -p ${SERVER_PORT}" \
+            deploy/waline/ \
+            "${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }}:${WALINE_SERVER_PATH}/"
+
+      - name: Write Waline environment
+        run: |
+          ssh -p "${SERVER_PORT}" "${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }}" \
+            "cat > '${WALINE_SERVER_PATH}/.env'" <<EOF
+          TZ=Asia/Shanghai
+          WALINE_PORT=${WALINE_PORT}
+          JWT_TOKEN=${WALINE_JWT_TOKEN}
+          SITE_NAME=${WALINE_SITE_NAME}
+          SITE_URL=${WALINE_SITE_URL}
+          SECURE_DOMAINS=${WALINE_SECURE_DOMAINS}
+          AUTHOR_EMAIL=${WALINE_AUTHOR_EMAIL}
+          EOF
+
+      - name: Start Waline
+        run: |
+          ssh -p "${SERVER_PORT}" "${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }}" \
+            "cd '${WALINE_SERVER_PATH}' && docker compose pull && docker compose up -d"

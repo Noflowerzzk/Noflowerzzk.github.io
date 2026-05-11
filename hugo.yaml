@@ -106,6 +106,12 @@ params:
   search:
     enable: true
     type: flexsearch
+  comments:
+    waline:
+      enable: true
+      serverURL: https://comments.noflowerzzk.cn
+      reaction: true
+      pageview: true
   page:
     width: normal
     tabs:

@@ -15,6 +15,10 @@
     document.documentElement.classList.remove("noflower-ui-entering");
   }, 520);
 </script>
+{{- $waline := site.Params.comments.waline -}}
+{{- if and ($waline.enable | default false) $waline.serverURL -}}
+  <link rel="stylesheet" href="https://unpkg.com/@waline/client@v3/dist/waline.css">
+{{- end -}}
 <script defer src="/js/content-enter.js"></script>
 <script defer src="/js/page-chrome.js"></script>
 <script defer src="/js/author-hovercard.js"></script>

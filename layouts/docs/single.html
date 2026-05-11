@@ -14,7 +14,15 @@
               {{ if .IsPage }}
                 {{ $readingTime := .ReadingTime }}
                 {{ if lt $readingTime 1 }}{{ $readingTime = 1 }}{{ end }}
-                <div class="page-reading-meta">约 {{ $readingTime }} 分钟阅读 · {{ .WordCount }} 字</div>
+                <div class="page-reading-meta">
+                  约 {{ $readingTime }} 分钟阅读 · {{ .WordCount }} 字
+                  {{- $waline := site.Params.comments.waline -}}
+                  {{- if and ($waline.enable | default false) $waline.serverURL ($waline.pageview | default true) -}}
+                    {{- $pagePath := .RelPermalink -}}
+                    {{- if ne $pagePath "/" -}}{{- $pagePath = strings.TrimSuffix "/" $pagePath -}}{{- end -}}
+                    <span class="noflower-pageview-meta"> · <span class="waline-pageview-count" data-path="{{ $pagePath }}"></span> 次浏览</span>
+                  {{- end -}}
+                </div>
               {{ end }}
             </div>
             {{ partial "components/page-context-menu" . }}
